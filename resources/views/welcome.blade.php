@@ -10,91 +10,134 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+    <body class="bg-light">
+<div id="app">
+    <v-app id="inspire">
+        <v-navigation-drawer
+            v-model="drawer"
+            app
+            clipped
+        >
+            <v-list dense>
+                <v-list-group
+                    prepend-icon="account_circle"
+                    value="true"
+                >
+                    <template v-slot:activator>
+                        <v-list-item-title>Users</v-list-item-title>
+                    </template>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+                    <v-list-group no-action sub-group value="true">
+                        <template v-slot:activator>
+                            <v-list-item-content>
+                                <v-list-item-title>Admin</v-list-item-title>
+                            </v-list-item-content>
+                        </template>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                        <v-list-item
+                            v-for="(admin, i) in admins"
+                            :key="i"
+                            link
+                        >
+                            <v-list-item-title v-text="admin[0]"></v-list-item-title>
+                            <v-list-item-icon>
+                                <v-icon v-text="admin[1]"></v-icon>
+                            </v-list-item-icon>
+                        </v-list-item>
+                    </v-list-group>
+                </v-list-group>
+                <v-list-group prepend-icon="all_inbox"
+                    value="true">
+                    <template v-slot:activator>
+                        <v-list-item-title>Stock</v-list-item-title>
+                    </template>
+                    <v-list-item v-for="(stocks, i) in stock" :key="i" link :href="stocks[2]">
+                        <v-list-item-title v-text="stocks[0]"></v-list-item-title>
+                        <v-list-item-icon>
+                            <v-icon v-text="stocks[1]"></v-icon>
+                        </v-list-item-icon>
+                    </v-list-item>
+                </v-list-group>
+                <v-list-group prepend-icon="settings"
+                    value="true">
+                    <template v-slot:activator>
+                        <v-list-item-title>Configuración</v-list-item-title>
+                    </template>
+                    <v-list-item v-for="(setting, i) in settings" :key="i" link :href="setting[2]">
+                        <v-list-item-title v-text="setting[0]"></v-list-item-title>
+                        <v-list-item-icon>
+                            <v-icon v-text="setting[1]"></v-icon>
+                        </v-list-item-icon>
+                    </v-list-item>
+                </v-list-group>
+            </v-list>
+    </v-navigation-drawer>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
+    <v-app-bar
+      app
+      clipped-left
+    >
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-toolbar-title>MGR Techno</v-toolbar-title>
+    </v-app-bar>
+
+    <v-content>
+        <v-container
+            fluid
+            fill-height
+        >
+            <v-layout
+                align-top
+                allign-space-between
+                column
+            >
+            <!--
+                align-top
+                fill-height
+                column
+            -->
+                
+                <!--<v-flex shrink>
+                    <v-tooltip right>
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          href=""
+                          icon
+                          large
+                          target="_blank"
+                          v-on="on"
+                        >
+                          <v-icon large>mdi-code-tags</v-icon>
+                        </v-btn>
+                      </template>
+                      <span>Source</span>
+                    </v-tooltip>
+                    <v-tooltip right>
+                        <template v-slot:activator="{ on }">
+                            <v-btn
+                                icon
+                                large
+                                href="https://codepen.io/johnjleider/pen/bXNzZL"
+                                target="_blank"
+                                v-on="on"
+                            >
+                                <v-icon large>mdi-codepen</v-icon>
+                            </v-btn>
+                        </template>
+                        <span>Codepen</span>
+                    </v-tooltip>
+                </v-flex>-->
+            </v-layout>
+        </v-container>
+    </v-content>
+
+    <!--<v-footer app>
+        <span>&copy; 2019</span>
+    </v-footer>-->
+  </v-app>
+
+</div>
+</body>
 </html>
