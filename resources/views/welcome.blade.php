@@ -53,7 +53,7 @@
                     <template v-slot:activator>
                         <v-list-item-title>Stock</v-list-item-title>
                     </template>
-                    <v-list-item v-for="(stocks, i) in stock" :key="i" link :href="stocks[2]">
+                    <v-list-item v-for="(stocks, i) in stock" :key="i" link :to="stocks[2]">
                         <v-list-item-title v-text="stocks[0]"></v-list-item-title>
                         <v-list-item-icon>
                             <v-icon v-text="stocks[1]"></v-icon>
@@ -93,6 +93,7 @@
                 allign-space-between
                 column
             >
+                <router-view></router-view>
             <!--
                 align-top
                 fill-height
