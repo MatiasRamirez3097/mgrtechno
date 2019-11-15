@@ -8,26 +8,30 @@ import VueRouter from 'vue-router'
 import '@mdi/font/css/materialdesignicons.css'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import store from './store'
 Vue.use(Vuetify)
 Vue.use(VueRouter)
 const routes = [
                   { 
-                    component: () => import('./components/testing.vue'),
-                    path: "/testing"
+                    component: () => import('./pages/stock.vue'),
+                    path: "/altastock"
                   },
                   { 
                     component: () => import('./components/testing2.vue'),
                     path: "/testing2"
+                  },
+                  {
+                    component: () => import('./pages/productos.vue'),
+                    path: "/productos"
                   }
                 ] 
 const router = new VueRouter({
   routes // short for `routes: routes`
 })
- // path to vuetify export
-//Vue.component('clientes', require('./components/clientes').default);
+
 const app = new Vue({
     el: '#app',
-    //store,
+    store,
     router,
     vuetify: new Vuetify({
       theme: { dark: true },
@@ -39,7 +43,7 @@ const app = new Vue({
         ['Settings', 'settings'],
       ],
       stock: [
-        ['Alta','add','/testing'],
+        ['Alta','add','/altastock'],
         ['Recuperar', 'restore_from_trash','/testing2']
       ],
       settings:[
