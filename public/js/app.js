@@ -74040,7 +74040,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -74056,7 +74056,7 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
 vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var routes = [{
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./pages/stock.vue */ "./resources/js/pages/stock.vue"));
+    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./pages/stock.vue */ "./resources/js/pages/stock.vue"));
   },
   path: "/altastock"
 }, {
@@ -74076,7 +74076,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]({
 });
 var app = new vue__WEBPACK_IMPORTED_MODULE_6___default.a({
   el: '#app',
-  store: _store__WEBPACK_IMPORTED_MODULE_9__["default"],
+  store: _store__WEBPACK_IMPORTED_MODULE_8__["default"],
   router: router,
   vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_7___default.a({
     theme: {
@@ -74086,7 +74086,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_6___default.a({
   data: function data() {
     return {
       drawer: null,
+      mini: true,
       admins: [['Management', 'people_outline'], ['Settings', 'settings']],
+      compras: [['Nueva compra', 'move_to_inbox', '/newcompras'], ['Consultar', 'find_in_page', '/consultarcompras']],
       stock: [['Alta', 'add', '/altastock'], ['Recuperar', 'restore_from_trash', '/testing2']],
       settings: [['Productos', 'add_circle', '/admin/productos'], ['Proveedores', 'people_outline', '/admin/proveedores'], ['Clientes', 'people', '/admin/clientes']],
       cruds: [['Create', 'add'], ['Read', 'insert_drive_file'], ['Update', 'update'], ['Delete', 'delete']]

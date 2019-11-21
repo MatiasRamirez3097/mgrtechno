@@ -38,9 +38,14 @@ const app = new Vue({
     }),
       data: () => ({
       drawer: null,
+      mini: true,
       admins: [
         ['Management', 'people_outline'],
         ['Settings', 'settings'],
+      ],
+      compras: [
+        ['Nueva compra','move_to_inbox','/newcompras'],
+        ['Consultar','find_in_page','/consultarcompras']
       ],
       stock: [
         ['Alta','add','/altastock'],
