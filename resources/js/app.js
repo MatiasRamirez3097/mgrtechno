@@ -9,6 +9,7 @@ import '@mdi/font/css/materialdesignicons.css'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import store from './store'
+import datatable from './components/tables/datatable.vue'
 Vue.use(Vuetify)
 Vue.use(VueRouter)
 const routes = [
@@ -17,8 +18,8 @@ const routes = [
                     path: "/altastock"
                   },
                   { 
-                    component: () => import('./components/testing2.vue'),
-                    path: "/testing2"
+                    component: () => import('./pages/Compras.vue'),
+                    path: "/compras"
                   },
                   {
                     component: () => import('./pages/productos.vue'),
@@ -33,6 +34,7 @@ const app = new Vue({
     el: '#app',
     store,
     router,
+    datatable,
     vuetify: new Vuetify({
       theme: { dark: true },
     }),
@@ -44,8 +46,8 @@ const app = new Vue({
         ['Settings', 'settings'],
       ],
       compras: [
-        ['Nueva compra','move_to_inbox','/newcompras'],
-        ['Consultar','find_in_page','/consultarcompras']
+        ['Compras','move_to_inbox','/compras'],
+        ['Ventas','shopping_cart','/ventas']
       ],
       stock: [
         ['Alta','add','/altastock'],

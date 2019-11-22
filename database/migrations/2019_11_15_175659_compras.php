@@ -18,6 +18,7 @@ class Compras extends Migration
             $table->integer('proveedores_id')->unsigned();
             $table->foreign('proveedores_id')->references('id')->on('proveedores')->onDelete('restrict')->onUpdate('restrict');
             $table->string('factura')->nullable();
+            $table->boolean('estado')->default(true);
         });
         
     }
@@ -29,6 +30,6 @@ class Compras extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('compras');
     }
 }

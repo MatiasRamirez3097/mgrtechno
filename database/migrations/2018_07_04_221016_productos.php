@@ -21,6 +21,7 @@ class Productos extends Migration
             $table->string('modelo');
             $table->string('upc', 80)->unique()->nullable()->default(null);
             $table->string('ean', 80)->unique()->nullable()->default(null);
+            $table->integer('cantidad')->default(0);
             $table->boolean('serializado')->default(true);
             $table->boolean('estado')->default(true);
             $table->timestamps();

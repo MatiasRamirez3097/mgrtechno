@@ -8,7 +8,11 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <style type="text/css">
+            .icon:before {
+                font-family: sans-serif!important;
+            }
+        </style>
         <!-- Styles -->
         
     </head>
@@ -22,7 +26,7 @@
             mini-variant
             permanent
         >
-            <v-list tile subheader nav>
+            <v-list subheader nav>
                 <!--<v-list-group prepend-icon="account_circle"
                     value="true">
                     <template v-slot:activator>
@@ -37,24 +41,22 @@
                         </v-list-item>
                 </v-list-group>-->
                 <v-subheader>Moves</v-subheader>
-                <!--<v-list-group prepend-icon="all_inbox"
+                <v-list-group prepend-icon="all_inbox"
                     value="true">
-                    <template v-slot:activator>
+                <!--    <template v-slot:activator>
                         <v-list-item-title>Compras</v-list-item-title>
                     </template>-->
-                    
-                        <v-list-item v-for="(compra, i) in compras" :key="i" link :to="compra[2]">
-                            <v-tooltip right>
-                                <template v-slot:activator="{ on }">
-                                    <v-list-item-icon v-on="on">
-                                        <v-icon v-text="compra[1]"></v-icon>
-                                    </v-list-item-icon>
-                                </template>
-                                <span v-text="compra[0]"></span>
-                            </v-tooltip>
-                        </v-list-item>
-                    
-                <!--</v-list-group>-->
+                    <v-tooltip right v-for="(compra, i) in compras" :key="i">
+                        <template v-slot:activator="{ on }">
+                            <v-list-item  link :to="compra[2]"  v-on="on">
+                                <v-list-item-icon>
+                                    <v-icon v-text="compra[1]"></v-icon>     
+                                </v-list-item-icon>
+                            </v-list-item>
+                        </template>
+                        <span v-text="compra[0]"></span>
+                    </v-tooltip>
+                </v-list-group>
                 <v-list-group prepend-icon="all_inbox"
                     value="true">
                     <template v-slot:activator>

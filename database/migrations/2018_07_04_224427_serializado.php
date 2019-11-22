@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Stock extends Migration
+class serializado extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class Stock extends Migration
      */
     public function up()
     {
-        Schema::create('serializado', function(Blueprint $table) {
+        Schema::create('serializados', function(Blueprint $table) {
             $table->increments('id');
 
             $table->integer('productos_id')->unsigned();
@@ -43,6 +43,6 @@ class Stock extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock');
+        Schema::dropIfExists('serializados');
     }
 }

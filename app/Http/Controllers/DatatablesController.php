@@ -10,6 +10,7 @@ use App\Proveedores;
 use App\Productos;
 use App\Stock;
 use App\Clientes;
+use App\Compras;
 use Response;
 use DB;
 use Vuetable;
@@ -203,6 +204,14 @@ class DatatablesController extends Controller
 		//					->orderBy("$ordenar[0]", "$ordenar[1]")
 		//					->paginate(15);
 		return Response::json($retornar->paginate($parameters['itemsPerPage']));
+	}
+	public function getCompras(Request $request)
+	{
+		$parameters = $request->all();
+		$retornar = Compras::select('id','factura')
+							->leftjoin('proveedores','proveedores.id','=','compras.proveedores_id')
+							->where('estado','=',true);
+		return Response::json($retornar->paginate($parameters['itemsPerPage']));		
 	}
 
 }
