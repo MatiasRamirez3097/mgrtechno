@@ -10,8 +10,8 @@
           :loading="loading"
           class="elevation-1"
           show-expand
-          show-select
-          v-model="multiSalida"
+          :show-select="showSelect"
+          v-model="multiSelect"
         >
           <template v-slot:top>
           	<v-toolbar flat>
@@ -353,15 +353,51 @@
         expanded: [],
         items:[],
         loading: false,
+        multiSelect: [],
         options:{},
         search: '',
         totalItems: 0
       }
     },
+    methods:
+    {
+      getDataFromApi () {
+        this.loading = true
+          const { sortBy, descending, page, itemsPerPage, sortDesc } = this.options
+          axios.post(this.url,
+          {
+            datafilter: this.disponible,
+            sortDesc: this.options.sortDesc,
+            search: this.search,
+            sortBy: this.options.sortBy,
+            descending: this.options.descending,
+            page: this.options.page,
+            itemsPerPage: this.options.itemsPerPage
+          }).then(response => {
+            this.desserts = response.data.data
+            this.totalDesserts = response.data.total
+            this.loading = false;
+            this.$store.commit('setRunSearch',false)
+          });
+      },
+    },
     props:
     {
       headers: Array,
+      showSelect: Boolean,
       singleExpand: Boolean,
+      url: String
+    },
+    watch:
+    {
+      search:
+      {
+        handler()
+        {
+          this.getDataFromApi()
+        },
+        deep: true
+      }
     }
   }
 </script>

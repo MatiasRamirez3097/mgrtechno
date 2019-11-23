@@ -208,9 +208,9 @@ class DatatablesController extends Controller
 	public function getCompras(Request $request)
 	{
 		$parameters = $request->all();
-		$retornar = Compras::select('id','factura')
+		$retornar = Compras::select('compras.id','factura')
 							->leftjoin('proveedores','proveedores.id','=','compras.proveedores_id')
-							->where('estado','=',true);
+							->where('compras.estado','=',true);
 		return Response::json($retornar->paginate($parameters['itemsPerPage']));		
 	}
 

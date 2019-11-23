@@ -27,12 +27,10 @@ __webpack_require__.r(__webpack_exports__);
         text: 'Proveedor',
         value: 'proveedor'
       }, {
-        text: 'Código EAN',
-        value: 'ean'
-      }, {
-        text: 'Tipo de producto',
-        value: 'tipo'
-      } //{ text: 'Modelo', value: 'modelo' },
+        text: 'Factura',
+        value: 'factura'
+      } //{ text: 'Tipo de producto', value: 'tipo' },
+      //{ text: 'Modelo', value: 'modelo' },
       //{ text: 'Marca', value: 'marca' },
       //{ text: 'Serializado', value: 'serializado'},
       //{ text: 'Actions', value: 'action', sortable: false },
@@ -93,7 +91,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-card", [_c("datatable", { attrs: { headers: _vm.headers } })], 1)
+  return _c(
+    "v-card",
+    [
+      _c("datatable", {
+        attrs: { headers: _vm.headers, url: "/datatables/getcompras" }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

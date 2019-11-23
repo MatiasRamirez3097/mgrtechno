@@ -2390,14 +2390,53 @@ __webpack_require__.r(__webpack_exports__);
       expanded: [],
       items: [],
       loading: false,
+      multiSelect: [],
       options: {},
       search: '',
       totalItems: 0
     };
   },
+  methods: {
+    getDataFromApi: function getDataFromApi() {
+      var _this = this;
+
+      this.loading = true;
+      var _this$options = this.options,
+          sortBy = _this$options.sortBy,
+          descending = _this$options.descending,
+          page = _this$options.page,
+          itemsPerPage = _this$options.itemsPerPage,
+          sortDesc = _this$options.sortDesc;
+      axios.post(this.url, {
+        datafilter: this.disponible,
+        sortDesc: this.options.sortDesc,
+        search: this.search,
+        sortBy: this.options.sortBy,
+        descending: this.options.descending,
+        page: this.options.page,
+        itemsPerPage: this.options.itemsPerPage
+      }).then(function (response) {
+        _this.desserts = response.data.data;
+        _this.totalDesserts = response.data.total;
+        _this.loading = false;
+
+        _this.$store.commit('setRunSearch', false);
+      });
+    }
+  },
   props: {
     headers: Array,
-    singleExpand: Boolean
+    showSelect: Boolean,
+    singleExpand: Boolean,
+    url: String
+  },
+  watch: {
+    search: {
+      handler: function handler() {
+        this.getDataFromApi();
+      },
+      deep: true
+    }
   }
 });
 
@@ -20908,7 +20947,7 @@ var render = function() {
       "server-items-length": _vm.totalItems,
       loading: _vm.loading,
       "show-expand": "",
-      "show-select": ""
+      "show-select": _vm.showSelect
     },
     on: {
       "update:expanded": function($event) {
@@ -21065,11 +21104,11 @@ var render = function() {
       }
     ]),
     model: {
-      value: _vm.multiSalida,
+      value: _vm.multiSelect,
       callback: function($$v) {
-        _vm.multiSalida = $$v
+        _vm.multiSelect = $$v
       },
-      expression: "multiSalida"
+      expression: "multiSelect"
     }
   })
 }

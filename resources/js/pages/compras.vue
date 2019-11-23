@@ -1,6 +1,6 @@
 <template>
 	<v-card>
-		<datatable :headers="headers"></datatable>		
+		<datatable :headers="headers" url="/datatables/getcompras"></datatable>		
 	</v-card>
 </template>
 <script>
@@ -17,8 +17,8 @@
 				search: '',
 				headers: [
 		          	{ text: 'Proveedor', value: 'proveedor' },
-		          	{ text: 'Código EAN', value: 'ean'},
-		          	{ text: 'Tipo de producto', value: 'tipo' },
+		          	{ text: 'Factura', value: 'factura'},
+		          	//{ text: 'Tipo de producto', value: 'tipo' },
 		          	//{ text: 'Modelo', value: 'modelo' },
 		          	//{ text: 'Marca', value: 'marca' },
 		          	//{ text: 'Serializado', value: 'serializado'},
