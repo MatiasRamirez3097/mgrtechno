@@ -1,15 +1,29 @@
-<template>
+<template>	
 	<v-card>
-		<datatable :headers="headers" url="/datatables/getcompras"></datatable>		
+		{{val}}
+		<datatable :headers="headers" v-on:edit="dialEdit" v-on:new="val = true" url="/datatables/getcompras"></datatable>		
+		<vdialog ref="dialog" :state.sync="val"></vdialog>
+		<!--<v-dialog ref="dialog" persistent v-model="val" max-width="600px">
+			<v-card>
+				<v-card-text>
+				</v-card-text>
+				<v-card-actions>
+					<v-spacer></v-spacer>
+					<v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
+				</v-card-actions>
+			</v-card>
+		</v-dialog>-->
 	</v-card>
 </template>
 <script>
+	import vdialog from '../components/tables/stock/vdialogs/stockDialog.vue'
 	import datatable from '../components/tables/datatable.vue'
 	export default
 	{
 		components:
 		{
-			datatable
+			datatable,
+			vdialog
 		},
 		data()
 		{
@@ -30,12 +44,17 @@
 		        multiSalida: [],
 		        options:{},
 		        singleExpand: false,
-		        totalItems:0
+		        totalItems:0,
+		        val: false
 			}
 		},
 		methods:
 		{
-			getDataFromApi () {
+			dialEdit(value)
+			{
+				this.val = value
+			}
+			/*getDataFromApi () {
       			this.loading = true
           		const { sortBy, descending, page, itemsPerPage, sortDesc } = this.options
           		axios.post('/datatables/getstock',
@@ -53,7 +72,11 @@
 		            this.loading = false;
               		this.$store.commit('setRunSearch',false)
         		});
-    		},
+    		},*/
+		},
+		watch:
+		{
+
 		}
 	}
 </script>

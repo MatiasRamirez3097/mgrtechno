@@ -1,32 +1,32 @@
 <template>
   <v-data-table
-          :single-expand="singleExpand"
-          :expanded.sync="expanded"
-          :search="search"
-          :headers="headers"
-          :items="items"
-          :options.sync="options"
-          :server-items-length="totalItems"
-          :loading="loading"
-          class="elevation-1"
-          show-expand
-          :show-select="showSelect"
-          v-model="multiSelect"
-        >
-          <template v-slot:top>
-          	<v-toolbar flat>
-        	<v-toolbar-title>Productos</v-toolbar-title>
-    		<v-spacer></v-spacer>
-        	<v-text-field
+    :single-expand="singleExpand"
+    :expanded.sync="expanded"
+    :search="search"
+    :headers="headers"
+    :items="items"
+    :options.sync="options"
+    :server-items-length="totalItems"
+    :loading="loading"
+    class="elevation-1"
+    show-expand
+    :show-select="showSelect"
+    v-model="multiSelect"
+  >
+    <template v-slot:top>
+      <v-toolbar flat>
+        <v-toolbar-title>Productos</v-toolbar-title>
+	        <v-spacer></v-spacer>
+          <v-text-field
   	        v-model="search"
   	        append-icon="search"
   	        label="Search"
   	        single-line
   	        hide-details
-        	></v-text-field>
+  	       ></v-text-field>
         	<v-spacer></v-spacer>
         	<v-btn color="primary" dark class="mb-2" v-on:click="newItem()">New Item</v-btn>
-        	</v-toolbar>
+      	</v-toolbar>
             <!--<v-toolbar flat>
             <v-spacer></v-spacer>
             <v-btn color="success" dark class="mb-2" v-on:click="multiInit()">Salida multiple</v-btn>
@@ -374,12 +374,16 @@
             page: this.options.page,
             itemsPerPage: this.options.itemsPerPage
           }).then(response => {
-            this.desserts = response.data.data
-            this.totalDesserts = response.data.total
+            this.items = response.data.data
+            this.totalItems = response.data.total
             this.loading = false;
-            this.$store.commit('setRunSearch',false)
+            //this.$store.commit('setRunSearch',false)
           });
       },
+      newItem()
+      {
+        this.$emit('new', true)
+      }
     },
     props:
     {

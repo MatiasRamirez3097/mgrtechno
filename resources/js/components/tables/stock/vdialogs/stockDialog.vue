@@ -1,7 +1,7 @@
 <template>
-	<v-dialog persistent v-model="getDialog" max-width="600px">
-		<newItemForm v-if="getAction == 'nuevo'"></newItemForm>
-		<editItemForm v-else-if="getAction == 'editar'"></editItemForm>
+	<v-dialog persistent v-model="state" max-width="600px">
+		<!--<newItemForm v-if="getAction == 'nuevo'"></newItemForm>
+		<editItemForm v-else-if="getAction == 'editar'"></editItemForm>-->
                       		
                       
                       <!--<v-combobox
@@ -157,7 +157,12 @@
 	          		this.$store.commit('setRunSearch', true)
         		}, 300)
       		},*/
+		},
+		props:
+		{
+			state: Boolean
 		}
+		
 
 	}
 </script>
