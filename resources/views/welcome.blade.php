@@ -72,15 +72,17 @@
                 <v-subheader>Configuración</v-subheader>
                 <v-list-group prepend-icon="settings"
                     value="true">
-                    <template v-slot:activator>
-                        <!--<v-list-item-title>Configuración</v-list-item-title>-->
-                    </template>
-                    <v-list-item v-for="(setting, i) in settings" :key="i" link :href="setting[2]">
-                        <!--<v-list-item-title v-text="setting[0]"></v-list-item-title>-->
-                        <v-list-item-icon>
-                            <v-icon v-text="setting[1]"></v-icon>
-                        </v-list-item-icon>
-                    </v-list-item>
+                    
+                    <v-tooltip right v-for="(setting, i) in settings" :key="i">
+                        <template v-slot:activator="{ on }">
+                            <v-list-item  link :to="setting[2]"  v-on="on">
+                                <v-list-item-icon>
+                                    <v-icon v-text="setting[1]"></v-icon>     
+                                </v-list-item-icon>
+                            </v-list-item>
+                        </template>
+                        <span v-text="setting[0]"></span>
+                    </v-tooltip>
                 </v-list-group>
             </v-list>
     </v-navigation-drawer>

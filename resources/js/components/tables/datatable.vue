@@ -15,7 +15,7 @@
   >
     <template v-slot:top>
       <v-toolbar flat>
-        <v-toolbar-title>Productos</v-toolbar-title>
+        <v-toolbar-title>{{title}}</v-toolbar-title>
 	        <v-spacer></v-spacer>
           <v-text-field
   	        v-model="search"
@@ -390,6 +390,7 @@
       headers: Array,
       showSelect: Boolean,
       singleExpand: Boolean,
+      title: String,
       url: String
     },
     watch:

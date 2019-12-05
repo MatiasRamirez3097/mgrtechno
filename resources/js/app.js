@@ -24,6 +24,10 @@ const routes = [
                   {
                     component: () => import('./pages/productos.vue'),
                     path: "/productos"
+                  },
+                  {
+                    component: () => import('./pages/proveedores.vue'),
+                    path: "/proveedores"
                   }
                 ] 
 const router = new VueRouter({
@@ -55,7 +59,7 @@ const app = new Vue({
       ],
       settings:[
         ['Productos', 'add_circle','/admin/productos'],
-        ['Proveedores','people_outline','/admin/proveedores'],
+        ['Proveedores','people_outline','/proveedores'],
         ['Clientes','people','/admin/clientes']
       ],
       cruds: [

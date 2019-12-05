@@ -9,5 +9,5 @@ class Compras extends PrimaryModel
 {
     protected $table = 'compras';
     protected $primaryKey = 'id';
-    protected $fillable = ['proveedores_id','factura'];
+    protected $fillable = ['proveedores_id','estado','factura'];
 }

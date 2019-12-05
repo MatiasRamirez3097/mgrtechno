@@ -2429,6 +2429,7 @@ __webpack_require__.r(__webpack_exports__);
     headers: Array,
     showSelect: Boolean,
     singleExpand: Boolean,
+    title: String,
     url: String
   },
   watch: {
@@ -20967,7 +20968,7 @@ var render = function() {
               "v-toolbar",
               { attrs: { flat: "" } },
               [
-                _c("v-toolbar-title", [_vm._v("Productos")]),
+                _c("v-toolbar-title", [_vm._v(_vm._s(_vm.title))]),
                 _vm._v(" "),
                 _c("v-spacer"),
                 _vm._v(" "),
@@ -74778,19 +74779,24 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
 vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var routes = [{
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./pages/stock.vue */ "./resources/js/pages/stock.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./pages/stock.vue */ "./resources/js/pages/stock.vue"));
   },
   path: "/altastock"
 }, {
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./pages/Compras.vue */ "./resources/js/pages/Compras.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./pages/Compras.vue */ "./resources/js/pages/Compras.vue"));
   },
   path: "/compras"
 }, {
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./pages/productos.vue */ "./resources/js/pages/productos.vue"));
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./pages/productos.vue */ "./resources/js/pages/productos.vue"));
   },
   path: "/productos"
+}, {
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./pages/proveedores.vue */ "./resources/js/pages/proveedores.vue"));
+  },
+  path: "/proveedores"
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]({
   routes: routes // short for `routes: routes`
@@ -74813,7 +74819,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_6___default.a({
       admins: [['Management', 'people_outline'], ['Settings', 'settings']],
       compras: [['Compras', 'move_to_inbox', '/compras'], ['Ventas', 'shopping_cart', '/ventas']],
       stock: [['Alta', 'add', '/altastock'], ['Recuperar', 'restore_from_trash', '/testing2']],
-      settings: [['Productos', 'add_circle', '/admin/productos'], ['Proveedores', 'people_outline', '/admin/proveedores'], ['Clientes', 'people', '/admin/clientes']],
+      settings: [['Productos', 'add_circle', '/admin/productos'], ['Proveedores', 'people_outline', '/proveedores'], ['Clientes', 'people', '/admin/clientes']],
       cruds: [['Create', 'add'], ['Read', 'insert_drive_file'], ['Update', 'update'], ['Delete', 'delete']]
     };
   }

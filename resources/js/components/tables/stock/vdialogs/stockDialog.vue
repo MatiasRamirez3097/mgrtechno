@@ -2,7 +2,7 @@
 	<v-dialog persistent v-model="state" max-width="600px">
 		<!--<newItemForm v-if="getAction == 'nuevo'"></newItemForm>
 		<editItemForm v-else-if="getAction == 'editar'"></editItemForm>-->
-                      		
+              <newItemForm></newItemForm>		
                       
                       <!--<v-combobox
                         v-else-if="formTitle == 'Editar producto'"

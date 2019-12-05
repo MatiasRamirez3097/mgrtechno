@@ -250,7 +250,7 @@
     },
     mounted () {
       this.getDataFromApi()
-      this.cargarSelects()
+      //this.cargarSelects()
     },
     methods: {
       getDataFromApi () {
