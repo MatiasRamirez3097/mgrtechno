@@ -17,6 +17,7 @@ class Proveedores extends Migration
             $table->string('nombre', 80)->unique();
             $table->string('tel', 60)->nullable()->default(null);
             $table->boolean('estado')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

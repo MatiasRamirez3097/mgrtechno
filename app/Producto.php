@@ -4,21 +4,20 @@ namespace App;
 
 use App\PrimaryModel;
 
-class Productos extends PrimaryModel
+class Producto extends PrimaryModel
 {
     protected $table = 'productos';
 	protected $primaryKey = 'id';
     //Definimos los campos que se pueden llenar con asignación masiva
-    protected $fillable = ['tipos_id', 'marcas_id','modelo','ean','upc','serializado','estado'];
+    protected $fillable = ['tipo_id', 'marca_id','modelo','ean','upc','serializado'];
 
     protected $casts = [
-        'tipo'    	=> 'string',
-        'marca' => 'string',
+        'tipo_id'    	=> 'integer',
+        'marca_id' => 'integer',
         'modelo' => 'string',
         'ean' => 'string',
         'upc' => 'string',
-        'serializado' => 'string',
-        'estado' => 'boolean'
+        'serializado' => 'boolean'
     ];
 
 	public function setModeloAttribute($value)
@@ -33,12 +32,12 @@ class Productos extends PrimaryModel
 	{	
 		$this->attributes['ean'] = parent::toUpperOrNull($value);	
 	}
-    public function marcas()
+    public function marca()
     {
-        return $this->belongsTo('App\Marcas');
+        return $this->belongsTo(Categoria::class);
     }
-    public function tiposdeproductos()
+    public function tipo()
     {
-        return $this->belongsTo('App\TiposDeProductos');
+        return $this->belongsTo(Categoria::class);
     }
 }

@@ -385,6 +385,10 @@
         this.$emit('new', true)
       }
     },
+    mounted()
+    {
+      this.getDataFromApi();
+    },
     props:
     {
       headers: Array,

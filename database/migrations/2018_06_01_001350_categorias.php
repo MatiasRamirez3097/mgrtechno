@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TiposDeProductos extends Migration
+class Categorias extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class TiposDeProductos extends Migration
      */
     public function up()
     {
-        Schema::create('tipos_de_productos', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->boolean('estado')->default(true);
+            $table->string('descripcion');
+            $table->string('tipo');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class TiposDeProductos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipos_de_productos');
+        Schema::dropIfExists('categorias');
     }
 }

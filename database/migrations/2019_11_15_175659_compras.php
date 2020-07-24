@@ -15,10 +15,11 @@ class Compras extends Migration
     {
         Schema::create('compras', function (Blueprint $table){
             $table->increments('id');
-            $table->integer('proveedores_id')->unsigned();
-            $table->foreign('proveedores_id')->references('id')->on('proveedores')->onDelete('restrict')->onUpdate('restrict');
+            $table->integer('proveedor_id')->unsigned();
+            $table->foreign('proveedor_id')->references('id')->on('proveedores')->onDelete('restrict')->onUpdate('restrict');
             $table->string('factura')->nullable();
-            $table->boolean('estado')->default(true);
+            $table->softDeletes();
+            $table->timestamps();
         });
         
     }

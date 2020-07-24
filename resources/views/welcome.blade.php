@@ -105,7 +105,9 @@
                 allign-space-between
                 column
             >
-                <router-view></router-view>
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
             <!--
                 align-top
                 fill-height

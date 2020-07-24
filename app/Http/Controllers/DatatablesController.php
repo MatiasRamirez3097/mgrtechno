@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Proveedores;
-use App\Productos;
+use App\Proveedor;
+use App\Producto;
 use App\Stock;
-use App\Clientes;
-use App\Compras;
+use App\Cliente;
+use App\Compra;
 use Response;
 use DB;
 use Vuetable;
@@ -48,43 +48,7 @@ class DatatablesController extends Controller
 		}
 		return Response::json($retornar->paginate($parameters['itemsPerPage']));
 	}
-	public function GetProductos(Request $request)
-	{
-		$parameters = $request->all();
-		//return $parameters['search'];
-		$retornar = Productos::select(['productos.id', 'tipos_de_productos.nombre as tipo','marcas.nombre as marca','productos.modelo','productos.ean','productos.upc','productos.serializado'])
-					->join('marcas','productos.marcas_id','=','marcas.id')
-					->join('tipos_de_productos','tipos_de_productos.id','=','productos.tipos_id')
-						->where('productos.estado','=', true);
-		if($parameters['search'] != null)
-		{
-			$filtro = $parameters['search'];
-			$retornar = $retornar->where(function ($retornar) use ($filtro) {
-								$retornar->orWhere('tipos_de_productos.nombre','ilike',"%$filtro%");
-								$retornar->orWhere('marcas.nombre','ilike',"%$filtro%");
-								$retornar->orWhere('productos.modelo','ilike',"%$filtro%");
-								/*if(is_numeric($filtro))
-								{*/
-									$retornar->orWhere('productos.ean','ilike',"%$filtro%");
-									$retornar->orWhere('productos.upc','ilike',"%$filtro%");
-								//}
-						});
-		}
-		if(sizeof($parameters['sortDesc'])> 0 && sizeof($parameters['sortBy'])> 0)
-		{
-			if($parameters['sortDesc'][0] == true)
-			{
-				$retornar->orderBy($parameters['sortBy'][0], 'desc');	
-			}
-			else
-			{
-				$retornar->orderBy($parameters['sortBy'][0], 'asc');
-			}
-			
-		}
-
-		return Response::json($retornar->paginate($parameters['itemsPerPage']));
-	}
+	
 	public function getStock(Request $request)
 	{
 		$parameters = $request->all();

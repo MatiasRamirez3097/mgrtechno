@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/productos.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************!*\
@@ -55,13 +55,13 @@ __webpack_require__.r(__webpack_exports__);
         value: 'ean'
       }, {
         text: 'Tipo de producto',
-        value: 'tipo.descripcion'
+        value: 'tipo'
       }, {
         text: 'Modelo',
         value: 'modelo'
       }, {
         text: 'Marca',
-        value: 'marca.descripcion'
+        value: 'marca'
       }, {
         text: 'Serializado',
         value: 'serializado'
@@ -132,44 +132,46 @@ __webpack_require__.r(__webpack_exports__);
      }*/
   },
   watch: {
-    /*search:{
-      handler () {
-        this.getDataFromApi()
+    search: {
+      handler: function handler() {
+        this.getDataFromApi();
       },
-      deep: true,
+      deep: true
     },
     options: {
-      handler () {
-        this.getDataFromApi()
+      handler: function handler() {
+        this.getDataFromApi();
       },
-      deep: true,
+      deep: true
     },
-    dialog (val) {
-      val || this.close()
+    dialog: function dialog(val) {
+      val || this.close();
     },
-    'comboboxes.searching.tipo' (val) {
-      this.comboboxes.loading.tipo = true
-      axios.post('/ajax/tiposprods',
-        {
-          search:val
-        }).then(response => {
-          this.comboboxes.fields.tipos = response.data;
-          this.comboboxes.loading.tipo = false;
+    'comboboxes.searching.tipo': function comboboxesSearchingTipo(val) {
+      var _this = this;
+
+      this.comboboxes.loading.tipo = true;
+      axios.post('/ajax/tiposprods', {
+        search: val
+      }).then(function (response) {
+        _this.comboboxes.fields.tipos = response.data;
+        _this.comboboxes.loading.tipo = false;
       });
     },
-    'comboboxes.searching.marca' (val) {
-      this.comboboxes.loading.marca = true
-      axios.post('/ajax/marcas',
-        {
-          search:val  
-        }).then(response => {
-          this.comboboxes.fields.marcas = response.data;
-          this.comboboxes.loading.marca = false
-        });
-    }*/
+    'comboboxes.searching.marca': function comboboxesSearchingMarca(val) {
+      var _this2 = this;
+
+      this.comboboxes.loading.marca = true;
+      axios.post('/ajax/marcas', {
+        search: val
+      }).then(function (response) {
+        _this2.comboboxes.fields.marcas = response.data;
+        _this2.comboboxes.loading.marca = false;
+      });
+    }
   },
-  mounted: function mounted() {//this.getDataFromApi()
-    //this.cargarSelects()
+  mounted: function mounted() {
+    this.getDataFromApi(); //this.cargarSelects()
   },
   methods: {
     dialEdit: function dialEdit(value) {
@@ -190,7 +192,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getDataFromApi: function getDataFromApi() {
-      var _this = this;
+      var _this3 = this;
 
       this.loading = true;
       var _this$options = this.options,
@@ -207,9 +209,9 @@ __webpack_require__.r(__webpack_exports__);
         page: this.options.page,
         itemsPerPage: this.options.itemsPerPage
       }).then(function (response) {
-        _this.desserts = response.data.data;
-        _this.totalDesserts = response.data.total;
-        _this.loading = false;
+        _this3.desserts = response.data.data;
+        _this3.totalDesserts = response.data.total;
+        _this3.loading = false;
       });
     },
     initialize: function initialize() {
@@ -231,14 +233,14 @@ __webpack_require__.r(__webpack_exports__);
       this.dialog = true;
     },
     close: function close() {
-      var _this2 = this;
+      var _this4 = this;
 
       this.dialog = false;
       setTimeout(function () {
-        _this2.selectedItem = Object.assign({}, _this2.defaultItem);
-        _this2.editedIndex = -1;
+        _this4.selectedItem = Object.assign({}, _this4.defaultItem);
+        _this4.editedIndex = -1;
 
-        _this2.getDataFromApi();
+        _this4.getDataFromApi();
       }, 300);
     },
     save: function save() {

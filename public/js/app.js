@@ -2425,6 +2425,9 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit('new', true);
     }
   },
+  mounted: function mounted() {
+    this.getDataFromApi();
+  },
   props: {
     headers: Array,
     showSelect: Boolean,
@@ -74789,7 +74792,7 @@ var routes = [{
   path: "/compras"
 }, {
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./pages/productos.vue */ "./resources/js/pages/productos.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./pages/productos.vue */ "./resources/js/pages/productos.vue"));
   },
   path: "/productos"
 }, {
@@ -74819,7 +74822,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_6___default.a({
       admins: [['Management', 'people_outline'], ['Settings', 'settings']],
       compras: [['Compras', 'move_to_inbox', '/compras'], ['Ventas', 'shopping_cart', '/ventas']],
       stock: [['Alta', 'add', '/altastock'], ['Recuperar', 'restore_from_trash', '/testing2']],
-      settings: [['Productos', 'add_circle', '/admin/productos'], ['Proveedores', 'people_outline', '/proveedores'], ['Clientes', 'people', '/admin/clientes']],
+      settings: [['Productos', 'add_circle', '/productos'], ['Proveedores', 'people_outline', '/proveedores'], ['Clientes', 'people', '/admin/clientes']],
       cruds: [['Create', 'add'], ['Read', 'insert_drive_file'], ['Update', 'update'], ['Delete', 'delete']]
     };
   }

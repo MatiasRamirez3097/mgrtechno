@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PrimaryModel extends Model
 {
+	use SoftDeletes;
 	protected function toUpperOrNull($value)
 	{
 		if(is_string($value))

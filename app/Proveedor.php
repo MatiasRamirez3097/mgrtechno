@@ -4,7 +4,7 @@ namespace App;
 
 use App\PrimaryModel;
 
-class Proveedores extends PrimaryModel
+class Proveedor extends PrimaryModel
 {
     protected $table = 'proveedores';
 	protected $primaryKey = 'id';
@@ -23,4 +23,7 @@ class Proveedores extends PrimaryModel
 	{
 	    $this->attributes['tel'] = parent::toUpperOrNull($value);
 	}
+	public function compras(){
+    	return $this->hasMany(Compra::class);
+    }
 }

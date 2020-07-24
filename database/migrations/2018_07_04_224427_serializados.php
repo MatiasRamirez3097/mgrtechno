@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class serializado extends Migration
+class serializados extends Migration
 {
     /**
      * Run the migrations.
@@ -29,8 +29,8 @@ class serializado extends Migration
             
             $table->integer('clientes_id')->nullable()->unsigned();
             $table->foreign('clientes_id')->references('id')->on('clientes')->onDelete('restrict')->onUpdate('restrict');
-
-            $table->boolean('estado')->default(true);
+            $table->softDeletes();
+            //$table->boolean('estado')->default(true);
             $table->timestamps();
             
         });

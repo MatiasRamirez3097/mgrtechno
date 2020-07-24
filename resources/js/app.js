@@ -58,7 +58,7 @@ const app = new Vue({
         ['Recuperar', 'restore_from_trash','/testing2']
       ],
       settings:[
-        ['Productos', 'add_circle','/admin/productos'],
+        ['Productos', 'add_circle','/productos'],
         ['Proveedores','people_outline','/proveedores'],
         ['Clientes','people','/admin/clientes']
       ],

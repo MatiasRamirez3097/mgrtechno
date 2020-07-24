@@ -4,15 +4,20 @@ namespace App;
 
 use App\PrimaryModel;
 
-class TiposDeProductos extends PrimaryModel
+class Marca extends PrimaryModel
 {
-    protected $table = 'tipos_de_productos';
+    
+    protected $table = 'categorias';
 	protected $primaryKey = 'id';
     //Definimos los campos que se pueden llenar con asignación masiva
-    protected $fillable = ['nombre','estado'];
-
+    protected $fillable = ['nombre'];
+    protected $hidden= ['tipo']
     public function setNombreAttribute($value)
 	{
 	    $this->attributes['nombre'] = parent::toUpperOrNull($value);
 	}
+	public function productos()
+    {
+        return $this->hasMany('App\Productos');
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ComprasDetalle extends Migration
+class CompraDetalles extends Migration
 {
     /**
      * Run the migrations.
@@ -25,7 +25,7 @@ class ComprasDetalle extends Migration
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });*/
-        Schema::create('compras_detalle', function (Blueprint $table) {
+        Schema::create('compra_detalles', function (Blueprint $table) {
             $table->integer('compra_id')->unsigned();
             $table->foreign('compra_id')->references('id')->on('compras')->onDelete('restrict')->onUpdate('restrict');
             $table->integer('producto_id')->unsigned();
@@ -33,7 +33,8 @@ class ComprasDetalle extends Migration
             $table->integer('serializado_id')->unsigned();
             $table->foreign('serializado_id')->references('id')->on('serializados')->onDelete('restrict')->onUpdate('restrict')->default(null)->nullable();
             $table->integer('cantidad')->default(1);
-            $table->boolean('estado')->default(true);
+            //$table->boolean('estado')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -45,6 +46,6 @@ class ComprasDetalle extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compras_detalle');
+        Schema::dropIfExists('compra_detalles');
     }
 }

@@ -17,6 +17,7 @@ class Marcas extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->boolean('estado')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

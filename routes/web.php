@@ -26,8 +26,11 @@ Route::get('/', function () {
 	Route::post('/ajax/check/codbarras',['uses' => 'AjaxController@checkCodbarras']);
 	Route::post('/ajax/clientes',['uses' => 'AjaxController@getClientes']);
 
+
+Route::post('/crearproducto',['uses' => 'ProductosController@NuevoProducto']);
+
 Route::post('/datatables/getproveedores', ['uses' => 'DatatablesController@GetProveedores']);
-Route::post('/datatables/getproductos', ['uses' => 'DatatablesController@GetProductos']);
+Route::post('/datatables/getproductos', ['uses' => 'ProductosController@GetProductos']);
 Route::post('/datatables/getstock', ['uses' => 'DatatablesController@GetStock']);
 Route::post('/datatables/getclientes', ['uses' => 'DatatablesController@GetClientes']);
 Route::get('/datatables/getproveedoreseliminados', ['uses' => 'DatatablesController@GetProveedoresEliminados']);
