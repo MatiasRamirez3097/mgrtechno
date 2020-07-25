@@ -23,7 +23,7 @@ const routes = [
                   },
                   {
                     component: () => import('./pages/productos.vue'),
-                    path: "/productos"
+                    path: "/admin/productos"
                   },
                   {
                     component: () => import('./pages/proveedores.vue'),

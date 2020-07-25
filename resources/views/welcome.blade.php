@@ -95,7 +95,7 @@
         <v-toolbar-title>MGR Techno</v-toolbar-title>
     </v-app-bar>
 
-    <v-content>
+    <v-main>
         <v-container
             fluid
             fill-height
@@ -144,7 +144,7 @@
                 </v-flex>-->
             </v-layout>
         </v-container>
-    </v-content>
+    </v-main>
 
     <!--<v-footer app>
         <span>&copy; 2019</span>
