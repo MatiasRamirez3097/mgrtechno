@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Proveedores extends Migration
+class Pedidos extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +13,12 @@ class Proveedores extends Migration
      */
     public function up()
     {
-        Schema::create('proveedores', function(Blueprint $table) {
+        Schema::create('pedidos', function(Blueprint $table){
             $table->increments('id');
-            $table->string('nombre', 80)->unique();
-            $table->string('tel', 60)->nullable();
-            $table->boolean('estado')->default(true);
-            $table->timestamps();
+            $table->integer('clientes_id')->unsigned();
+            $table->foreign('clientes_id')->references('id')->on('clientes')->onDelete('restrict')->onUpdate('restrict');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class Proveedores extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proveedores');
+        Schema::dropIfExists('pedidos');
     }
 }

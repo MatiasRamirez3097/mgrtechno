@@ -14,17 +14,14 @@ class Productos extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tipos_id')->unsigned();
-            $table->foreign('tipos_id')->references('id')->on('tipos_de_productos')->onDelete('restrict')->onUpdate('restrict');
-            $table->integer('marcas_id')->unsigned();
-            $table->foreign('marcas_id')->references('id')->on('marcas')->onDelete('restrict')->onUpdate('restrict');
+            $table->string('tipo');
+            $table->string('marca');
             $table->string('modelo');
-            $table->string('upc', 80)->unique()->nullable()->default(null);
-            $table->string('ean', 80)->unique()->nullable()->default(null);
-            $table->integer('cantidad')->default(0);
-            $table->boolean('serializado')->default(true);
+            $table->string('codbarras', 80)->unique();
             $table->boolean('estado')->default(true);
+            $table->integer('cantidad');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

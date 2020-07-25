@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Marcas extends Migration
+class Serializados extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class Marcas extends Migration
      */
     public function up()
     {
-        Schema::create('marcas', function (Blueprint $table) {
+        Schema::create('serializados', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('serial')->unique();
             $table->boolean('estado')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +29,6 @@ class Marcas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marcas');
+        Schema::dropIfExists('serializados');
     }
 }
