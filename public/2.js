@@ -105,7 +105,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -115,6 +114,7 @@ __webpack_require__.r(__webpack_exports__);
       loading: false,
       localValue: this.value,
       options: {},
+      search: '',
       totalOfData: 0
     };
   },
@@ -133,8 +133,8 @@ __webpack_require__.r(__webpack_exports__);
           page = _this$options.page,
           itemsPerPage = _this$options.itemsPerPage,
           sortDesc = _this$options.sortDesc;
-      axios.post("/datatables/getstock", {
-        datafilter: this.disponible,
+      axios.post(this.url, {
+        //datafilter: this.disponible,
         sortDesc: this.options.sortDesc,
         search: this.search,
         sortBy: this.options.sortBy,
@@ -155,28 +155,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     classProp: String,
-    search: String,
     headers: Array,
     items: Array,
+    url: String,
     serverItemsLength: Number
   },
   watch: {
-    localSearch: function localSearch(newValue) {
-      this.$emit("input", newValue);
+    options: {
+      handler: function handler() {
+        this.getDataFromApi();
+      },
+      deep: true
     },
-    value: function (_value) {
-      function value(_x) {
-        return _value.apply(this, arguments);
-      }
-
-      value.toString = function () {
-        return _value.toString();
-      };
-
-      return value;
-    }(function (newValue) {
-      this.localValue = value;
-    })
+    search: {
+      handler: function handler() {
+        this.getDataFromApi();
+      },
+      deep: true
+    }
   }
 });
 
@@ -227,10 +223,26 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Slottop',
   props: {
     label: String,
-    search: String,
     title: String
   },
-  watch: {}
+  watch: {
+    localValue: function localValue(newValue) {
+      this.$emit("input", newValue);
+    },
+    value: function (_value) {
+      function value(_x) {
+        return _value.apply(this, arguments);
+      }
+
+      value.toString = function () {
+        return _value.toString();
+      };
+
+      return value;
+    }(function (newValue) {
+      this.localValue = value;
+    })
+  }
 });
 
 /***/ }),
@@ -269,14 +281,25 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       headers: [{
-        text: 'Name',
-        value: 'name'
+        text: 'ID',
+        value: 'id'
       }, {
-        text: 'Surname',
-        value: 'surname'
+        text: 'Tipo',
+        value: 'tipo'
+      }, {
+        text: 'Marca',
+        value: 'marca'
+      }, {
+        text: 'Modelo',
+        value: 'modelo'
+      }, {
+        text: 'UPC/EAN',
+        value: 'codbarras'
+      }, {
+        text: 'Cantidad',
+        value: 'cantidad'
       }],
-      loading: false,
-      search: "",
+      url: '/datatables/getproductos',
       items: []
     };
   }
@@ -384,7 +407,6 @@ var render = function() {
   return _c("v-data-table", {
     class: _vm.classProp,
     attrs: {
-      search: _vm.search,
       headers: _vm.headers,
       items: _vm.data,
       options: _vm.options,
@@ -400,7 +422,18 @@ var render = function() {
       {
         key: "top",
         fn: function() {
-          return [_c("Slottop", { attrs: { title: "Productos" } })]
+          return [
+            _c("Slottop", {
+              attrs: { title: "Productos" },
+              model: {
+                value: _vm.search,
+                callback: function($$v) {
+                  _vm.search = $$v
+                },
+                expression: "search"
+              }
+            })
+          ]
         },
         proxy: true
       }
@@ -450,11 +483,11 @@ var render = function() {
           "hide-details": ""
         },
         model: {
-          value: _vm.value,
+          value: _vm.localValue,
           callback: function($$v) {
-            _vm.value = $$v
+            _vm.localValue = $$v
           },
-          expression: "value"
+          expression: "localValue"
         }
       }),
       _vm._v(" "),
@@ -492,10 +525,10 @@ var render = function() {
       _vm._v(" "),
       _c("datatable", {
         attrs: {
-          loading: _vm.loading,
           headers: _vm.headers,
           items: _vm.items,
-          classProp: "elevation-1"
+          classProp: "elevation-1",
+          url: _vm.url
         }
       })
     ],

@@ -4,10 +4,10 @@
         
       </v-card-title>
       <datatable
-        :loading="loading" 
         :headers="headers"
         :items="items"
         classProp="elevation-1"
+        :url="url"
       >
       </datatable>
     </v-card>
@@ -24,19 +24,33 @@
       return {
           headers: [
             {
-              text: 'Name', 
-              value: 'name'
+              text: 'ID', 
+              value: 'id'
             },
             {
-              text: 'Surname',
-              value: 'surname'
+              text: 'Tipo',
+              value: 'tipo'
+            },
+            {
+              text: 'Marca',
+              value: 'marca'
+            },
+            {
+              text: 'Modelo',
+              value: 'modelo'
+            },
+            {
+              text: 'UPC/EAN',
+              value: 'codbarras'
+            },
+            {
+              text: 'Cantidad',
+              value: 'cantidad'
             }
           ],
-          loading: false,
-          search: "",
+          url: '/datatables/getproductos',
           items: []
         }
     },
   }
-
 </script>

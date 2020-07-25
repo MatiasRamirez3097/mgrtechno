@@ -9,7 +9,7 @@
         </v-divider>
         <v-spacer></v-spacer>
         <v-text-field
-            v-model="value"
+            v-model="localValue"
             append-icon="search"
             label="Search"
             single-line
@@ -34,11 +34,15 @@
         name: 'Slottop',
         props:{
             label: String,
-            search: String,
             title: String,
         },
         watch: {
-            
+            localValue(newValue) {
+                this.$emit("input", newValue);
+            },
+            value(newValue) {
+                this.localValue = value;
+            }
         }
     }
 </script>

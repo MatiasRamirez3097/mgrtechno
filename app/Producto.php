@@ -4,12 +4,12 @@ namespace App;
 
 use App\PrimaryModel;
 
-class Productos extends PrimaryModel
+class Producto extends PrimaryModel
 {
     protected $table = 'productos';
 	protected $primaryKey = 'id';
     //Definimos los campos que se pueden llenar con asignación masiva
-    protected $fillable = ['tipos_id', 'marcas_id','modelo','ean','upc','serializado','estado'];
+    protected $fillable = ['tipos_id', 'marcas_id','modelo','codbarras'];
 
     protected $casts = [
         'tipo'    	=> 'string',

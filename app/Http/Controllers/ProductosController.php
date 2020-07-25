@@ -4,16 +4,52 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Productos;
+use App\Producto;
 use App\TiposDeProductos;
 use App\Marcas;
 use DB;
 use Redirect;
 use View;
 use Validator;
+use Response;
 
 class ProductosController extends Controller
 {
+    public function GetProductos(Request $request)
+	{
+        $parameters = $request->all();
+		//return $parameters['search'];
+		$retornar = Producto::select(['productos.id', 'tiposdeproductos.nombre as tipo','marcas.nombre as marca','productos.modelo','codbarras'])
+					->join('marcas','productos.marcas_id','=','marcas.id')
+					->join('tiposdeproductos','tiposdeproductos.id','=','productos.tiposdeproductos_id');
+		if($parameters['search'] != null)
+		{
+			$filtro = $parameters['search'];
+			$retornar = $retornar->where(function ($retornar) use ($filtro) {
+								$retornar->orWhere('tiposdeproductos.nombre','ilike',"%$filtro%");
+								$retornar->orWhere('marcas.nombre','ilike',"%$filtro%");
+								$retornar->orWhere('productos.modelo','ilike',"%$filtro%");
+								/*if(is_numeric($filtro))
+								{*/
+									$retornar->orWhere('productos.codbarras','ilike',"%$filtro%");
+								//}
+						});
+		}
+		if(sizeof($parameters['sortDesc'])> 0 && sizeof($parameters['sortBy'])> 0)
+		{
+			if($parameters['sortDesc'][0] == true)
+			{
+				$retornar->orderBy($parameters['sortBy'][0], 'desc');	
+			}
+			else
+			{
+				$retornar->orderBy($parameters['sortBy'][0], 'asc');
+			}
+			
+		}
+
+		return Response::json($retornar->paginate($parameters['itemsPerPage']));
+	}
     public function Index() 
     {
     	return view('productos.productos');

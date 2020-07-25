@@ -1,6 +1,5 @@
 <template>
     <v-data-table
-        :search="search"
         :headers="headers"
         :items="data"
         :options.sync="options"
@@ -9,7 +8,7 @@
         :class="classProp"
     >
         <template v-slot:top>
-            <Slottop title="Productos"> </Slottop>
+            <Slottop title="Productos" v-model="search"> </Slottop>
         </template>
     </v-data-table>
 </template>
@@ -23,6 +22,7 @@ export default {
             loading: false,
             localValue: this.value,
             options: {},
+            search: '',
             totalOfData: 0
         };
     },
@@ -41,8 +41,8 @@ export default {
                 sortDesc
             } = this.options;
             axios
-                .post("/datatables/getstock", {
-                    datafilter: this.disponible,
+                .post(this.url, {
+                    //datafilter: this.disponible,
                     sortDesc: this.options.sortDesc,
                     search: this.search,
                     sortBy: this.options.sortBy,
@@ -64,17 +64,23 @@ export default {
     },
     props: {
         classProp: String,
-        search: String,
         headers: Array,
         items: Array,
+        url: String,
         serverItemsLength: Number
     },
     watch: {
-        localSearch(newValue) {
-            this.$emit("input", newValue);
+        options: {
+            handler () {
+                this.getDataFromApi()
+            },
+            deep: true,
         },
-        value(newValue) {
-            this.localValue = value;
+        search: {
+            handler () {
+                this.getDataFromApi()
+            },
+            deep: true,
         }
     }
 };

@@ -14,8 +14,10 @@ class Productos extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipo');
-            $table->string('marca');
+            $table->integer('tiposdeproductos_id')->unsigned();
+            $table->foreign('tiposdeproductos_id')->references('id')->on('tiposdeproductos')->onDelete('restrict')->onUpdate('restrict');
+            $table->integer('marcas_id')->unsigned();
+            $table->foreign('marcas_id')->references('id')->on('marcas')->onDelete('restrict')->onUpdate('restrict');
             $table->string('modelo');
             $table->string('codbarras', 80)->unique();
             $table->boolean('estado')->default(true);

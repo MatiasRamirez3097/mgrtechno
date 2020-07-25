@@ -27,9 +27,9 @@ Route::get('/', function () {
 	Route::post('/ajax/clientes',['uses' => 'AjaxController@getClientes']);
 
 Route::post('/datatables/getproveedores', ['uses' => 'DatatablesController@GetProveedores']);
-Route::post('/datatables/getproductos', ['uses' => 'DatatablesController@GetProductos']);
+Route::post('/datatables/getproductos', ['uses' => 'ProductosController@GetProductos']);
 Route::post('/datatables/getstock', ['uses' => 'DatatablesController@GetStock']);
 Route::post('/datatables/getclientes', ['uses' => 'DatatablesController@GetClientes']);
 Route::get('/datatables/getproveedoreseliminados', ['uses' => 'DatatablesController@GetProveedoresEliminados']);
-Route::get('/datatables/getproductoseliminados',['uses' => 'DatatablesController@GetProductosEliminados']);
+Route::get('/datatables/getproductoseliminados',['uses' => 'ProductosController@GetProductosEliminados']);
 Route::post('/datatables/getcompras', ['uses' => 'DatatablesController@getCompras']);
