@@ -4,11 +4,11 @@
         :headers="headers"
         :items="desserts"
         :options.sync="options"
-        :server-items-length="totalDesserts"
+        :server-items-length="serverItemsLength"
         :loading="loading"
-        class="elevation-1"
+        :class="classProp"
       >
-        <template v-slot:top>
+        <!--<template v-slot:top>
             <v-toolbar flat>
                 <v-toolbar-title>Productos</v-toolbar-title>
                     <v-divider
@@ -45,7 +45,7 @@
                                             <v-text-field v-model="selectedItem.ean" label="Código EAN"></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md4>
-                                            <!--<v-text-field v-model="selectedItem.tipo" label="Tipo de producto"></v-text-field>-->
+                                            <!--<v-text-field v-model="selectedItem.tipo" label="Tipo de producto"></v-text-field>
                                             <v-combobox
                                                 v-model="selectedItem.tipo"
                                                 :items="comboboxes.fields.tipos"
@@ -90,7 +90,7 @@
                             </v-list-item>
                           </template>
                         </v-combobox>
-                        <!--<v-text-field v-model="selectedItem.marca" label="Marca"></v-text-field>-->
+                        <!--<v-text-field v-model="selectedItem.marca" label="Marca"></v-text-field>
                       </v-flex>
                       <v-flex xs12 sm6 md4>
                         <v-text-field v-model="selectedItem.modelo" label="Modelo"></v-text-field>
@@ -149,7 +149,7 @@
                     </v-card>
                 </v-dialog>
             </v-toolbar>
-        </template>
+        </template>-->
         <template v-slot:item.serializado="{ item }">
             <v-chip :color="getColor(item.serializado)" dark>{{ getLabel(item.serializado)}}</v-chip>
         </template>
@@ -176,8 +176,16 @@
 <script>
     import {VDataTable} from 'vuetify/lib';
     export default {
+        components:{
+          VDataTable
+        },
         props:{
-            search: String    
+            classProp: String,
+            loading: Boolean,
+            search: String,
+            headers: Array,
+            items: Array,
+            serverItemsLength: Number
         }
     }
 </script>

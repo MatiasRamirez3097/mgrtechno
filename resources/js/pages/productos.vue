@@ -1,30 +1,40 @@
 <template>
     <v-card>
-      {{search}}
       <v-card-title>
-         Stock
-        <combobox 
-          label="hola" 
-          noFilter 
-          items="['asd']" 
-          v-model="search"
-          hideSelected
-          noData="no data"
-        >
-        </combobox>
+        
       </v-card-title>
+      <datatable
+        :loading="loading" 
+        :headers="headers"
+        :items="items"
+        classProp="elevation-1"
+      >
+      </datatable>
     </v-card>
     
 </template>
 <script>
-  import {combobox} from '../components'
+  import {combobox, datatable} from '../components'
   export default {
     components: {
-      combobox
+      combobox,
+      datatable
     },
     data () {
       return {
-          search: "a",
+          headers: [
+            {
+              text: 'Name', 
+              value: 'name'
+            },
+            {
+              text: 'Surname',
+              value: 'surname'
+            }
+          ],
+          loading: false,
+          search: "",
+          items: []
         }
     },
   }
