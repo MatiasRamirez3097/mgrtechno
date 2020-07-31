@@ -67,17 +67,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/index.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/index.js ***!
-  \******************************************/
-/*! exports provided: combobox, datatable, zdialog, Zinput */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\mgrtechnospa\\resources\\js\\components\\index.js: Export 'Zinput' is not defined (9:8)\n\n\u001b[0m \u001b[90m 7 | \u001b[39m\u001b[36mexport\u001b[39m {\u001b[33mDatatable\u001b[39m as datatable}\u001b[0m\n\u001b[0m \u001b[90m 8 | \u001b[39m\u001b[36mexport\u001b[39m {zdialog as zdialog}\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 9 | \u001b[39m\u001b[36mexport\u001b[39m {\u001b[33mZinput\u001b[39m as \u001b[33mZinput\u001b[39m}\u001b[0m\n\u001b[0m \u001b[90m   | \u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    at Parser.raise (C:\\xampp\\htdocs\\mgrtechnospa\\node_modules\\@babel\\parser\\lib\\index.js:6930:17)\n    at Parser.parseTopLevel (C:\\xampp\\htdocs\\mgrtechnospa\\node_modules\\@babel\\parser\\lib\\index.js:10548:14)\n    at Parser.parse (C:\\xampp\\htdocs\\mgrtechnospa\\node_modules\\@babel\\parser\\lib\\index.js:12051:10)\n    at parse (C:\\xampp\\htdocs\\mgrtechnospa\\node_modules\\@babel\\parser\\lib\\index.js:12102:38)\n    at parser (C:\\xampp\\htdocs\\mgrtechnospa\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:168:34)\n    at normalizeFile (C:\\xampp\\htdocs\\mgrtechnospa\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:102:11)\n    at runSync (C:\\xampp\\htdocs\\mgrtechnospa\\node_modules\\@babel\\core\\lib\\transformation\\index.js:44:43)\n    at runAsync (C:\\xampp\\htdocs\\mgrtechnospa\\node_modules\\@babel\\core\\lib\\transformation\\index.js:35:14)\n    at C:\\xampp\\htdocs\\mgrtechnospa\\node_modules\\@babel\\core\\lib\\transform.js:34:34\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)");
-
-/***/ }),
-
 /***/ "./resources/js/pages/proveedores.vue":
 /*!********************************************!*\
   !*** ./resources/js/pages/proveedores.vue ***!

@@ -17,37 +17,7 @@ use Vuetable;
 
 class DatatablesController extends Controller
 {
-	public function GetProveedores(Request $request)
-	{
-		$parameters = $request->all();
-		$retornar = Proveedores::select(['proveedores.id', 'proveedores.nombre', 'proveedores.tel'])
-						->where('estado','=', true);
-		if($parameters['search'] != null)
-		{
-			$filtro = $parameters['search'];
-			$retornar = $retornar->where(function ($retornar) use ($filtro) {
-								$retornar->orWhere('proveedores.tel','ilike',"%$filtro%");
-								$retornar->orWhere('proveedores.nombre','ilike',"%$filtro%");
-								/*if(is_numeric($filtro))
-								{
-									$retornar->orWhere('productos.codbarras','ilike',"%$filtro%");
-								}*/
-						});
-		}
-		if(sizeof($parameters['sortDesc'])> 0 && sizeof($parameters['sortBy'])> 0)
-		{
-			if($parameters['sortDesc'][0] == true)
-			{
-				$retornar->orderBy($parameters['sortBy'][0], 'desc');	
-			}
-			else
-			{
-				$retornar->orderBy($parameters['sortBy'][0], 'asc');
-			}
-			
-		}
-		return Response::json($retornar->paginate($parameters['itemsPerPage']));
-	}
+	
 	public function GetProductos(Request $request)
 	{
 		$parameters = $request->all();
@@ -168,43 +138,7 @@ class DatatablesController extends Controller
 						});
 		return $datatables->make(true); 
 	}
-	public function getClientes(Request $request)
-	{
-
-		$parameters = $request->all();
-		$retornar = Clientes::select('id','nombre', 'apellido','email','documento','domicilio','tel')
-							->where('estado','=', true);
-		if($parameters['search'] != null)
-		{
-			$filtro = $parameters['search'];
-			$retornar = $retornar->where(function ($retornar) use ($filtro) {
-								$retornar->orWhere('nombre','ilike',"%$filtro%");
-								$retornar->orWhere('apellido','ilike',"%$filtro%");
-								$retornar->orWhere('email','ilike',"%$filtro%");
-								$retornar->orWhere('domicilio','ilike',"%$filtro%");
-								if(is_numeric($filtro))
-								{
-									$retornar->orWhere('documento','ilike',"%$filtro%");
-								}
-						});
-		}
-		if(sizeof($parameters['sortDesc'])> 0 && sizeof($parameters['sortBy'])> 0)
-		{
-			if($parameters['sortDesc'][0] == true)
-			{
-				$retornar->orderBy($parameters['sortBy'][0], 'desc');
-			}
-			else
-			{
-				$retornar->orderBy($parameters['sortBy'][0], 'asc');
-			}
-			
-		}
-
-		//					->orderBy("$ordenar[0]", "$ordenar[1]")
-		//					->paginate(15);
-		return Response::json($retornar->paginate($parameters['itemsPerPage']));
-	}
+	
 	public function getCompras(Request $request)
 	{
 		$parameters = $request->all();

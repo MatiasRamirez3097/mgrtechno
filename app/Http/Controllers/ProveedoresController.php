@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Proveedores;
+use App\Proveedor;
 use DB;
 use Redirect;
 use View;
@@ -17,8 +17,7 @@ class ProveedoresController extends Controller
     public function GetProveedores(Request $request)
 	{
 		$parameters = $request->all();
-		$retornar = Proveedores::select(['proveedores.id', 'proveedores.nombre', 'proveedores.tel'])
-						->where('estado','=', true);
+		$retornar = Proveedor::select(['proveedores.id', 'proveedores.nombre', 'proveedores.tel']);
 		if($parameters['search'] != null)
 		{
 			$filtro = $parameters['search'];

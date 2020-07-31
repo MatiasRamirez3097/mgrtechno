@@ -22,8 +22,9 @@ const routes = [
                     path: "/compras"
                   },
                   {
-                    component: () => import('./pages/Clientes.vue')
-                  }
+                    component: () => import('./pages/Clientes.vue'),
+                    path: "/clientes"
+                  },
                   {
                     component: () => import('./pages/productos.vue'),
                     path: "/admin/productos"

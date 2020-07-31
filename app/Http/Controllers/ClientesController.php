@@ -6,14 +6,52 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Clientes;
+use App\Cliente;
 use DB;
 use Redirect;
+use Response;
 use View;
 use Validator;
 
 class ClientesController extends Controller
 {
+    public function getClientes(Request $request)
+	{
+
+		$parameters = $request->all();
+		$retornar = Cliente::select('id','nombre', 'apellido','email','documento','domicilio','tel');
+		if($parameters['search'] != null)
+		{
+			$filtro = $parameters['search'];
+			$retornar = $retornar->where(function ($retornar) use ($filtro) {
+								$retornar->orWhere('nombre','ilike',"%$filtro%");
+								$retornar->orWhere('apellido','ilike',"%$filtro%");
+								$retornar->orWhere('email','ilike',"%$filtro%");
+								$retornar->orWhere('domicilio','ilike',"%$filtro%");
+								if(is_numeric($filtro))
+								{
+									$retornar->orWhere('documento','ilike',"%$filtro%");
+								}
+						});
+		}
+		if(sizeof($parameters['sortDesc'])> 0 && sizeof($parameters['sortBy'])> 0)
+		{
+			if($parameters['sortDesc'][0] == true)
+			{
+				$retornar->orderBy($parameters['sortBy'][0], 'desc');
+			}
+			else
+			{
+				$retornar->orderBy($parameters['sortBy'][0], 'asc');
+			}
+			
+		}
+
+		//					->orderBy("$ordenar[0]", "$ordenar[1]")
+		//					->paginate(15);
+		return Response::json($retornar->paginate($parameters['itemsPerPage']));
+    }
+    
     public function Index(){
     	return view('clientes.clientes');
     }
