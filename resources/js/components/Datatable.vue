@@ -8,7 +8,11 @@
         :class="classProp"
     >
         <template v-slot:top>
-            <Slottop title="Productos" v-model="search"> </Slottop>
+            <Slottop 
+                @new-item="newItem"
+                :title="title" 
+                v-model="search"> 
+            </Slottop>
         </template>
     </v-data-table>
 </template>
@@ -56,6 +60,10 @@ export default {
                     this.loading = false;
                     this.$store.commit("setRunSearch", false);
                 });
+        },
+        newItem()
+        {
+            this.$emit('new-item');
         }
     },
     mounted()
@@ -66,6 +74,7 @@ export default {
         classProp: String,
         headers: Array,
         items: Array,
+        title: String,
         url: String,
         serverItemsLength: Number
     },

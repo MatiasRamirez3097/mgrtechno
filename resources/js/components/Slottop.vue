@@ -17,6 +17,7 @@
         >
         </v-text-field>
         <v-spacer></v-spacer>
+        <v-btn color="primary" dark class="mb-2" v-on:click="newItem()">New Item</v-btn>
     </v-toolbar>
 </template>
 <script>
@@ -30,6 +31,12 @@
         components: {
             VToolbar,
             VToolbarTitle
+        },
+        methods:{
+            newItem()
+            {
+                this.$emit('new-item')
+            }
         },
         name: 'Slottop',
         props:{

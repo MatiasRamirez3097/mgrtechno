@@ -14,6 +14,37 @@ use Validator;
 
 class ProveedoresController extends Controller
 {
+    public function GetProveedores(Request $request)
+	{
+		$parameters = $request->all();
+		$retornar = Proveedores::select(['proveedores.id', 'proveedores.nombre', 'proveedores.tel'])
+						->where('estado','=', true);
+		if($parameters['search'] != null)
+		{
+			$filtro = $parameters['search'];
+			$retornar = $retornar->where(function ($retornar) use ($filtro) {
+								$retornar->orWhere('proveedores.tel','ilike',"%$filtro%");
+								$retornar->orWhere('proveedores.nombre','ilike',"%$filtro%");
+								/*if(is_numeric($filtro))
+								{
+									$retornar->orWhere('productos.codbarras','ilike',"%$filtro%");
+								}*/
+						});
+		}
+		if(sizeof($parameters['sortDesc'])> 0 && sizeof($parameters['sortBy'])> 0)
+		{
+			if($parameters['sortDesc'][0] == true)
+			{
+				$retornar->orderBy($parameters['sortBy'][0], 'desc');	
+			}
+			else
+			{
+				$retornar->orderBy($parameters['sortBy'][0], 'asc');
+			}
+			
+		}
+		return Response::json($retornar->paginate($parameters['itemsPerPage']));
+	}
     public function Index(){
     	return view('proveedores.proveedores');
     }
