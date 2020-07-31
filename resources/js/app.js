@@ -22,6 +22,9 @@ const routes = [
                     path: "/compras"
                   },
                   {
+                    component: () => import('./pages/Clientes.vue')
+                  }
+                  {
                     component: () => import('./pages/productos.vue'),
                     path: "/admin/productos"
                   },
@@ -60,7 +63,7 @@ const app = new Vue({
       settings:[
         ['Productos', 'add_circle','/admin/productos'],
         ['Proveedores','people_outline','/proveedores'],
-        ['Clientes','people','/admin/clientes']
+        ['Clientes','people','/clientes']
       ],
       cruds: [
         ['Create', 'add'],
