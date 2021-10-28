@@ -11,6 +11,7 @@ use App\Productos;
 use App\Stock;
 use App\Clientes;
 use App\Compras;
+use App\Venta;
 use Response;
 use DB;
 use Vuetable;
@@ -208,9 +209,18 @@ class DatatablesController extends Controller
 	public function getCompras(Request $request)
 	{
 		$parameters = $request->all();
-		$retornar = Compras::select('compras.id','factura')
-							->leftjoin('proveedores','proveedores.id','=','compras.proveedores_id')
-							->where('compras.estado','=',true);
+		$retornar = Compras::select('compras.id','factura','users.name AS usuario','estado','total','fecha')
+							->leftjoin('proveedores','proveedores.id','=','compras.proveedor_id')
+							->leftjoin('users','users.id','=','compras.user_id');
+		return Response::json($retornar->paginate($parameters['itemsPerPage']));		
+	}
+
+	public function getVentas(Request $request)
+	{
+		$parameters = $request->all();
+		$retornar = Venta::select('ventas.id','ventas.factura','clientes.nombre','users.name AS usuario','ventas.estado','ventas.total','fecha')
+							->leftjoin('clientes','clientes.id','=','ventas.cliente_id')
+							->leftjoin('users','users.id','=','ventas.user_id');
 		return Response::json($retornar->paginate($parameters['itemsPerPage']));		
 	}
 

@@ -4,7 +4,7 @@
 		:items="values"
 		:search-input.sync="search"
 		hide-selected
-		hint="Seleccione la marca, si no existe escribala"
+		:hint="hint"
 		:label="label"
 		no-filter
 		persistent-hint
@@ -82,6 +82,10 @@
 		props:['url','rules','label','disabledAll', 'multiple','default'],
 		props:
 		{
+			hint:
+			{
+				type: String
+			},
 			url:
 			{
 				type: String

@@ -57,18 +57,18 @@
                         <span v-text="compra[0]"></span>
                     </v-tooltip>
                 </v-list-group>
-                <v-list-group prepend-icon="all_inbox"
+                <!--<v-list-group prepend-icon="all_inbox"
                     value="true">
-                    <template v-slot:activator>
+                    <template v-slot:activator>-->
                         <!--<v-list-item-title>Stock</v-list-item-title>-->
-                    </template>
+                    <!--</template>
                     <v-list-item v-for="(stocks, i) in stock" :key="i" link :to="stocks[2]">
                         <v-list-item-title v-text="stocks[0]"></v-list-item-title>
-                        <v-list-item-icon>
+                        <v-list-item-icon>-->
                             <!--<v-icon v-text="stocks[1]"></v-icon>-->
-                        </v-list-item-icon>
+                        <!--</v-list-item-icon>
                     </v-list-item>
-                </v-list-group>
+                </v-list-group>-->
                 <!--<v-subheader>Configuración</v-subheader>-->
                 <v-list-group prepend-icon="settings"
                     value="true">

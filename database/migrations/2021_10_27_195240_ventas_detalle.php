@@ -21,7 +21,6 @@ class VentasDetalle extends Migration
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('restrict')->onUpdate('restrict');
             $table->integer('cantidad');
             $table->float('precioUnitario',10,8);
-            $table->boolean('estado')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

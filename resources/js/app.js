@@ -28,6 +28,10 @@ const routes = [
                   {
                     component: () => import('./pages/proveedores.vue'),
                     path: "/proveedores"
+                  },
+                  {
+                    component: () => import('./pages/ventas.vue'),
+                    path: "/ventas"
                   }
                 ] 
 const router = new VueRouter({

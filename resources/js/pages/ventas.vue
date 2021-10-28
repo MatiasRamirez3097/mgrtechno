@@ -1,11 +1,11 @@
 <template>	
 	<v-card>
 		<datatable 
-			title="Compras" 
+			title="Ventas" 
 			:headers="headers" 
 			v-on:edit="dialEdit" 
 			v-on:new="val = true" 
-			url="/datatables/getcompras">
+			url="/datatables/getventas">
 		</datatable>		
 		<vdialog ref="dialog" :state.sync="val"></vdialog>
 		<!--<v-dialog ref="dialog" persistent v-model="val" max-width="600px">
@@ -21,7 +21,7 @@
 	</v-card>
 </template>
 <script>
-	import vdialog from '../components/tables/stock/vdialogs/stockDialog.vue'
+	import vdialog from '../components/tables/stock/vdialogs/ventasDialog.vue'
 	import datatable from '../components/tables/datatable.vue'
 	export default
 	{
@@ -35,7 +35,7 @@
 			return{
 				search: '',
 				headers: [
-		          	{ text: 'Proveedor', value: 'proveedor' },
+		          	{ text: 'Cliente', value: 'nombre' },
 		          	{ text: 'Factura', value: 'factura'},
 		          	{ text: 'Usuario', value: 'usuario' },
 		          	{ text: 'Estado', value: 'estado' },
