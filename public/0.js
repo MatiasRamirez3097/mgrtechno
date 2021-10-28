@@ -50,8 +50,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isLoading: false,
       val: this["default"],
-      items: null,
-      search: ''
+      items: [],
+      search: ""
     };
   },
   methods: {
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(this.url, {
         search: val
       }).then(function (response) {
-        _this.items = response.data;
+        //if(this.items) this.items = response.data;
         _this.isLoading = false;
       });
     }
@@ -298,66 +298,78 @@ var render = function () {
         _vm.search = $event
       },
     },
-    scopedSlots: _vm._u([
-      {
-        key: "item",
-        fn: function (item) {
-          return [
-            _c(
-              "v-list-item-content",
-              [
-                item.item.modelo
-                  ? _c("v-list-item-title", {
-                      domProps: {
-                        innerHTML: _vm._s(
-                          item.item.marca + " " + item.item.modelo
-                        ),
-                      },
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                item.item.text
-                  ? _c("v-list-item-title", {
-                      domProps: {
-                        innerHTML: _vm._s(
-                          item.item.text + " " + item.item.apellido
-                        ),
-                      },
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                item.item.documento
-                  ? _c("v-list-item-subtitle", {
-                      domProps: {
-                        innerHTML: _vm._s("DNI:" + item.item.documento),
-                      },
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                item.item.ean
-                  ? _c("v-list-item-subtitle", {
-                      domProps: { innerHTML: _vm._s("EAN:" + item.item.ean) },
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                item.item.ean
-                  ? _c("v-list-item-subtitle", {
-                      domProps: { innerHTML: _vm._s("EAN:" + item.item.ean) },
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                item.item.upc
-                  ? _c("v-list-item-subtitle", {
-                      domProps: { innerHTML: _vm._s("UPC:" + item.item.upc) },
-                    })
-                  : _vm._e(),
-              ],
-              1
-            ),
-          ]
-        },
-      },
-    ]),
+    scopedSlots: _vm._u(
+      [
+        _vm.items
+          ? {
+              key: "item",
+              fn: function (item) {
+                return [
+                  _c(
+                    "v-list-item-content",
+                    [
+                      item.item.modelo
+                        ? _c("v-list-item-title", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                item.item.marca + " " + item.item.modelo
+                              ),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      item.item.text
+                        ? _c("v-list-item-title", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                item.item.text + " " + item.item.apellido
+                              ),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      item.item.documento
+                        ? _c("v-list-item-subtitle", {
+                            domProps: {
+                              innerHTML: _vm._s("DNI:" + item.item.documento),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      item.item.ean
+                        ? _c("v-list-item-subtitle", {
+                            domProps: {
+                              innerHTML: _vm._s("EAN:" + item.item.ean),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      item.item.ean
+                        ? _c("v-list-item-subtitle", {
+                            domProps: {
+                              innerHTML: _vm._s("EAN:" + item.item.ean),
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      item.item.upc
+                        ? _c("v-list-item-subtitle", {
+                            domProps: {
+                              innerHTML: _vm._s("UPC:" + item.item.upc),
+                            },
+                          })
+                        : _vm._e(),
+                    ],
+                    1
+                  ),
+                ]
+              },
+            }
+          : null,
+      ],
+      null,
+      true
+    ),
     model: {
       value: _vm.val,
       callback: function ($$v) {

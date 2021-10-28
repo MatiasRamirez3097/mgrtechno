@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Productos;
 use App\Proveedores;
 use App\Stock;
-use App\Clientes;
+use App\Cliente;
 use App\TiposDeProductos;
 use App\Marcas;
 use DB;
@@ -122,25 +122,23 @@ class AjaxController extends Controller
 	}
 	public function getClientes(Request $request)
 	{
-		$ajax = Clientes::select('clientes.id','clientes.nombre as text', 'clientes.apellido', 'clientes.documento','clientes.email')
-				->where('clientes.estado','=',true);
-				if($request->search)
-				{
-		
-					$filtro = $request->search;
-					$ajax = $ajax->where(function ($ajax) use ($filtro) {
-										$ajax->orWhere('clientes.nombre','ilike',"%$filtro%");
-										$ajax->orWhere('clientes.email','ilike',"%$filtro%");
-										//$retornar->orWhere('proveedores.nombre','ilike',"%$filtro%");
-										$ajax->orWhere('clientes.apellido','ilike',"%$filtro%");
-										if(is_numeric($filtro))
-										{
-											$ajax->orWhere('clientes.documento','ilike',"%$filtro%");
-											//$retornar->orWhere('productos.codbarras','ilike',"%$filtro%");
-										}
-					});
-		
-				}
+		$ajax = Cliente::select('clientes.id','clientes.nombre as text', 'clientes.apellido', 'clientes.documento','clientes.email');
+		if($request->search)
+		{
+			$filtro = $request->search;
+			$ajax = $ajax->where(function ($ajax) use ($filtro) {
+								$ajax->orWhere('clientes.nombre','ilike',"%$filtro%");
+								$ajax->orWhere('clientes.email','ilike',"%$filtro%");
+								//$retornar->orWhere('proveedores.nombre','ilike',"%$filtro%");
+								$ajax->orWhere('clientes.apellido','ilike',"%$filtro%");
+								if(is_numeric($filtro))
+								{
+									//$ajax->orWhere('clientes.documento','ilike',"%$filtro%");
+									//$retornar->orWhere('productos.codbarras','ilike',"%$filtro%");
+								}
+			});
+
+		}
 		return Response::json($ajax->get());
 	}
 }

@@ -4,17 +4,17 @@ namespace App;
 
 use App\PrimaryModel;
 
-class Clientes extends PrimaryModel
+class Cliente extends PrimaryModel
 {
     protected $table = 'clientes';
 	protected $primaryKey = 'id';
     //Definimos los campos que se pueden llenar con asignación masiva
-    protected $fillable = ['nombre', 'apellido','email','documento','domicilio','tel','estado'];
+    protected $fillable = ['nombre', 'apellido','email','documento','domicilio','tel'];
 
-    public function stock()
+    /*public function stock()
     {
         return $this->hasMany('App\Stock');
-    }
+    }*/
     public function setNombreAttribute($value)
 	{
 	    $this->attributes['nombre'] = parent::toUpperOrNull($value);

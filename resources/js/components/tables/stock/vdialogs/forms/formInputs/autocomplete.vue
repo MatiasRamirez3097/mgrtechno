@@ -15,7 +15,7 @@
       	prepend-icon="mdi-database-search"
       	return-object
     >
-    <template v-slot:item="item">
+    <template v-if="items" v-slot:item="item">
 		<v-list-item-content>
 			<v-list-item-title v-if="item.item.modelo" v-html="item.item.marca + ' ' +item.item.modelo"></v-list-item-title>
 			<v-list-item-title v-if="item.item.text" v-html="item.item.text + ' ' + item.item.apellido"></v-list-item-title>
@@ -41,8 +41,8 @@
 			return{
 				isLoading: false,
 				val: this.default,
-				items:null,
-				search: ''
+				items: [],
+				search: ""
 			}
 		},
 		methods:
@@ -69,7 +69,7 @@
 	          	{
 	            	search:val
 	          	}).then(response => {
-	            	this.items = response.data;
+	            	//if(this.items) this.items = response.data;
 	            	this.isLoading = false;
 	        	});
       		},

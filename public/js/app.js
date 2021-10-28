@@ -83519,27 +83519,27 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
 vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var routes = [{
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./pages/stock.vue */ "./resources/js/pages/stock.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./pages/stock.vue */ "./resources/js/pages/stock.vue"));
   },
   path: "/altastock"
 }, {
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./pages/Compras.vue */ "./resources/js/pages/Compras.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./pages/Compras.vue */ "./resources/js/pages/Compras.vue"));
   },
   path: "/compras"
 }, {
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./pages/productos.vue */ "./resources/js/pages/productos.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./pages/productos.vue */ "./resources/js/pages/productos.vue"));
   },
   path: "/admin/productos"
 }, {
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./pages/proveedores.vue */ "./resources/js/pages/proveedores.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./pages/proveedores.vue */ "./resources/js/pages/proveedores.vue"));
   },
   path: "/proveedores"
 }, {
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./pages/ventas.vue */ "./resources/js/pages/ventas.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./pages/ventas.vue */ "./resources/js/pages/ventas.vue"));
   },
   path: "/ventas"
 }];

@@ -7,7 +7,7 @@
 			<v-card-text>
 				<v-container grid-list-mid>
 					<v-layout wrap>
-				    	<v-flex xs36 sm18 md12>
+				    	<!--<v-flex xs36 sm18 md12>
 				    		<combobox :rules="clienteRules" v-model="item.cliente" url="/ajax/clientes" label="Cliente" hint="Seleccione cliente"></combobox>
 				    	</v-flex>
                         <v-flex xs18 sm9 md6>
@@ -15,7 +15,7 @@
 						</v-flex>
 				    	<v-flex xs18 sm9 md6>
 								<datepicker ref="fecha" label="Fecha" v-model="item.fecha"></datepicker>
-				    	</v-flex>
+				    	</v-flex>-->
 						<v-flex xs18 sm9 md6>
 							<autocomplete 
                                 label="Cliente" 
@@ -87,7 +87,7 @@
         		//searchAutoClientes: null,
 		        item: {
 		          	id: 0,
-		          	cliente: null,
+		          	cliente: "",
 		          	factura: "",
 		          	usuario: null,
 		          	estado: "",
