@@ -16,8 +16,8 @@ class TiposDeProductos extends Migration
         Schema::create('tipos_de_productos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->boolean('estado')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

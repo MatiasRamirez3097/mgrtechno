@@ -21,8 +21,8 @@ class Clientes extends Migration
             $table->integer('documento')->unique()->nullable();
             $table->string('domicilio')->nullable();
             $table->string('tel',80)->nullable();
-            $table->boolean('estado')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

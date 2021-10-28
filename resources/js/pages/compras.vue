@@ -1,7 +1,12 @@
 <template>	
 	<v-card>
-		{{val}}
-		<datatable title="Compras" :headers="headers" v-on:edit="dialEdit" v-on:new="val = true" url="/datatables/getcompras"></datatable>		
+		<datatable 
+			title="Compras" 
+			:headers="headers" 
+			v-on:edit="dialEdit" 
+			v-on:new="val = true" 
+			url="/datatables/getcompras">
+		</datatable>		
 		<vdialog ref="dialog" :state.sync="val"></vdialog>
 		<!--<v-dialog ref="dialog" persistent v-model="val" max-width="600px">
 			<v-card>

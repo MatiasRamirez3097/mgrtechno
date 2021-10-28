@@ -40,13 +40,13 @@
                             
                         </v-list-item>
                 </v-list-group>-->
-                <v-subheader>Moves</v-subheader>
+                <!--<v-subheader>Moves</v-subheader>-->
                 <v-list-group prepend-icon="all_inbox"
                     value="true">
                 <!--    <template v-slot:activator>
                         <v-list-item-title>Compras</v-list-item-title>
                     </template>-->
-                    <v-tooltip right v-for="(compra, i) in compras" :key="i">
+                    <v-tooltip right v-for="(compra, i) in movimientos" :key="i">
                         <template v-slot:activator="{ on }">
                             <v-list-item  link :to="compra[2]"  v-on="on">
                                 <v-list-item-icon>
@@ -69,7 +69,7 @@
                         </v-list-item-icon>
                     </v-list-item>
                 </v-list-group>
-                <v-subheader>Configuración</v-subheader>
+                <!--<v-subheader>Configuración</v-subheader>-->
                 <v-list-group prepend-icon="settings"
                     value="true">
                     

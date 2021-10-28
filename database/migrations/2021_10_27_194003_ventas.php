@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Compras extends Migration
+class Ventas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class Compras extends Migration
      */
     public function up()
     {
-        Schema::create('compras', function (Blueprint $table){
+        Schema::create('ventas', function (Blueprint $table){
             $table->increments('id');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
-            $table->integer('proveedor_id')->unsigned();
-            $table->foreign('proveedor_id')->references('id')->on('proveedores')->onDelete('restrict')->onUpdate('restrict');
+            $table->integer('cliente_id')->unsigned();
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('restrict')->onUpdate('restrict');
             $table->string('factura')->nullable();
             $table->date('fecha')->nullable();
             $table->float('total',10,2);
@@ -26,7 +26,6 @@ class Compras extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        
     }
 
     /**
@@ -36,6 +35,6 @@ class Compras extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compras');
+        Schema::dropIfExists('ventas');
     }
 }

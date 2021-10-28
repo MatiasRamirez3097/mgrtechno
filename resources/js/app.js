@@ -49,14 +49,14 @@ const app = new Vue({
         ['Management', 'people_outline'],
         ['Settings', 'settings'],
       ],
-      compras: [
+      movimientos: [
         ['Compras','move_to_inbox','/compras'],
         ['Ventas','shopping_cart','/ventas']
       ],
-      stock: [
+      /*stock: [
         ['Alta','add','/altastock'],
         ['Recuperar', 'restore_from_trash','/testing2']
-      ],
+      ],*/
       settings:[
         ['Productos', 'add_circle','/admin/productos'],
         ['Proveedores','people_outline','/proveedores'],
