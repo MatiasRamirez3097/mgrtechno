@@ -356,9 +356,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _stock_slottop_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stock/slottop.vue */ "./resources/js/components/tables/stock/slottop.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -714,7 +714,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     slottop: _stock_slottop_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['getSearch', 'getDisponible', 'getRunSearch']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['getSearch', 'getDisponible', 'getRunSearch'])), {}, {
     edititem: {
       get: function get() {
         return this.$store.getters.getSelectedItem;
@@ -1709,7 +1709,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1726,15 +1726,15 @@ var render = function() {
           "append-icon": "search",
           label: "Search",
           "single-line": "",
-          "hide-details": ""
+          "hide-details": "",
         },
         model: {
           value: _vm.search,
-          callback: function($$v) {
+          callback: function ($$v) {
             _vm.search = $$v
           },
-          expression: "search"
-        }
+          expression: "search",
+        },
       }),
       _vm._v(" "),
       _c("v-spacer"),
@@ -1745,15 +1745,15 @@ var render = function() {
           staticClass: "mb-2",
           attrs: { color: "primary", dark: "" },
           on: {
-            click: function($event) {
+            click: function ($event) {
               return _vm.newItem()
-            }
-          }
+            },
+          },
         },
         [_vm._v("New Item")]
       ),
       _vm._v(" "),
-      _c("stockDialog")
+      _c("stockDialog"),
     ],
     1
   )
@@ -1776,7 +1776,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1792,27 +1792,27 @@ var render = function() {
       "server-items-length": _vm.totalDesserts,
       loading: _vm.loading,
       "show-expand": "",
-      "show-select": ""
+      "show-select": "",
     },
     on: {
-      "update:expanded": function($event) {
+      "update:expanded": function ($event) {
         _vm.expanded = $event
       },
-      "update:options": function($event) {
+      "update:options": function ($event) {
         _vm.options = $event
-      }
+      },
     },
     scopedSlots: _vm._u([
       {
         key: "top",
-        fn: function() {
+        fn: function () {
           return [_c("slottop")]
         },
-        proxy: true
+        proxy: true,
       },
       {
         key: "expanded-item",
-        fn: function(ref) {
+        fn: function (ref) {
           var item = ref.item
           return [
             _c(
@@ -1833,7 +1833,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", [_vm._v("Email")]),
                         _vm._v(" "),
-                        _c("th", [_vm._v("Domicilio")])
+                        _c("th", [_vm._v("Domicilio")]),
                       ]),
                       _vm._v(" "),
                       _c("tr", [
@@ -1845,20 +1845,20 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(item.email))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(item.domicilio))])
-                      ])
-                    ])
+                        _c("td", [_vm._v(_vm._s(item.domicilio))]),
+                      ]),
+                    ]),
                   ]
-                )
+                ),
               ],
               1
-            )
+            ),
           ]
-        }
+        },
       },
       {
         key: "item.action",
-        fn: function(ref) {
+        fn: function (ref) {
           var item = ref.item
           return [
             _c(
@@ -1867,10 +1867,10 @@ var render = function() {
                 staticClass: "mr-2",
                 attrs: { small: "" },
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.outItem(item)
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n        done\n      ")]
             ),
@@ -1881,10 +1881,10 @@ var render = function() {
                 staticClass: "mr-2",
                 attrs: { small: "" },
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.editItem(item)
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n        edit\n      ")]
             ),
@@ -1894,24 +1894,24 @@ var render = function() {
               {
                 attrs: { small: "" },
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.deleteItem(item)
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n        delete\n      ")]
-            )
+            ),
           ]
-        }
-      }
+        },
+      },
     ]),
     model: {
       value: _vm.multiSalida,
-      callback: function($$v) {
+      callback: function ($$v) {
         _vm.multiSalida = $$v
       },
-      expression: "multiSalida"
-    }
+      expression: "multiSalida",
+    },
   })
 }
 var staticRenderFns = []
@@ -1932,7 +1932,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1948,25 +1948,25 @@ var render = function() {
               attrs: { "hide-details": "", row: "" },
               model: {
                 value: _vm.disponible,
-                callback: function($$v) {
+                callback: function ($$v) {
                   _vm.disponible = $$v
                 },
-                expression: "disponible"
-              }
+                expression: "disponible",
+              },
             },
             [
               _c("v-radio", { attrs: { label: "Todos", value: "todos" } }),
               _vm._v(" "),
               _c("v-radio", {
-                attrs: { label: "Disponible", value: "disponible" }
+                attrs: { label: "Disponible", value: "disponible" },
               }),
               _vm._v(" "),
               _c("v-radio", {
-                attrs: { label: "No disponible", value: "nodisponible" }
-              })
+                attrs: { label: "No disponible", value: "nodisponible" },
+              }),
             ],
             1
-          )
+          ),
         ],
         1
       ),
@@ -1979,11 +1979,11 @@ var render = function() {
           attrs: { persistent: "" },
           model: {
             value: _vm.multiDialog,
-            callback: function($$v) {
+            callback: function ($$v) {
               _vm.multiDialog = $$v
             },
-            expression: "multiDialog"
-          }
+            expression: "multiDialog",
+          },
         },
         [
           _c(
@@ -1997,7 +1997,7 @@ var render = function() {
                     scopedSlots: _vm._u([
                       {
                         key: "item.fecha_salida",
-                        fn: function(ref) {
+                        fn: function (ref) {
                           var item = ref.item
                           return [
                             _c(
@@ -2010,21 +2010,21 @@ var render = function() {
                                   transition: "scale-transition",
                                   "offset-y": "",
                                   "full-width": "",
-                                  "min-width": "290px"
+                                  "min-width": "290px",
                                 },
                                 on: {
-                                  "update:returnValue": function($event) {
+                                  "update:returnValue": function ($event) {
                                     return _vm.$set(item, "fecha_open", $event)
                                   },
-                                  "update:return-value": function($event) {
+                                  "update:return-value": function ($event) {
                                     return _vm.$set(item, "fecha_open", $event)
-                                  }
+                                  },
                                 },
                                 scopedSlots: _vm._u(
                                   [
                                     {
                                       key: "activator",
-                                      fn: function(ref) {
+                                      fn: function (ref) {
                                         var on = ref.on
                                         return [
                                           _c(
@@ -2034,11 +2034,11 @@ var render = function() {
                                                 attrs: {
                                                   label: "Fecha de salida",
                                                   "prepend-icon": "event",
-                                                  readonly: ""
+                                                  readonly: "",
                                                 },
                                                 model: {
                                                   value: item.fecha_salida,
-                                                  callback: function($$v) {
+                                                  callback: function ($$v) {
                                                     _vm.$set(
                                                       item,
                                                       "fecha_salida",
@@ -2046,26 +2046,26 @@ var render = function() {
                                                     )
                                                   },
                                                   expression:
-                                                    "item.fecha_salida"
-                                                }
+                                                    "item.fecha_salida",
+                                                },
                                               },
                                               on
                                             )
-                                          )
+                                          ),
                                         ]
-                                      }
-                                    }
+                                      },
+                                    },
                                   ],
                                   null,
                                   true
                                 ),
                                 model: {
                                   value: item.fecha_open,
-                                  callback: function($$v) {
+                                  callback: function ($$v) {
                                     _vm.$set(item, "fecha_open", $$v)
                                   },
-                                  expression: "item.fecha_open"
-                                }
+                                  expression: "item.fecha_open",
+                                },
                               },
                               [
                                 _vm._v(" "),
@@ -2075,15 +2075,15 @@ var render = function() {
                                     attrs: {
                                       locale: "es-419",
                                       "no-title": "",
-                                      scrollable: ""
+                                      scrollable: "",
                                     },
                                     model: {
                                       value: item.fecha_salida,
-                                      callback: function($$v) {
+                                      callback: function ($$v) {
                                         _vm.$set(item, "fecha_salida", $$v)
                                       },
-                                      expression: "item.fecha_salida"
-                                    }
+                                      expression: "item.fecha_salida",
+                                    },
                                   },
                                   [
                                     _c("v-spacer"),
@@ -2093,10 +2093,10 @@ var render = function() {
                                       {
                                         attrs: { text: "", color: "primary" },
                                         on: {
-                                          click: function($event) {
+                                          click: function ($event) {
                                             item.fecha_open = false
-                                          }
-                                        }
+                                          },
+                                        },
                                       },
                                       [_vm._v("Cancel")]
                                     ),
@@ -2106,48 +2106,48 @@ var render = function() {
                                       {
                                         attrs: { text: "", color: "primary" },
                                         on: {
-                                          click: function($event) {
+                                          click: function ($event) {
                                             _vm.$refs[
                                               "fecha_salida" + item.id
                                             ].save(item.fecha_salida)
-                                          }
-                                        }
+                                          },
+                                        },
                                       },
                                       [_vm._v("OK")]
-                                    )
+                                    ),
                                   ],
                                   1
-                                )
+                                ),
                               ],
                               1
-                            )
+                            ),
                           ]
-                        }
+                        },
                       },
                       {
                         key: "item.precio_salida",
-                        fn: function(ref) {
+                        fn: function (ref) {
                           var item = ref.item
                           return [
                             _c("v-text-field", {
                               attrs: {
                                 type: "numeric",
                                 label: "Precio de salida",
-                                required: ""
+                                required: "",
                               },
                               model: {
                                 value: item.precio_salida,
-                                callback: function($$v) {
+                                callback: function ($$v) {
                                   _vm.$set(item, "precio_salida", $$v)
                                 },
-                                expression: "item.precio_salida"
-                              }
-                            })
+                                expression: "item.precio_salida",
+                              },
+                            }),
                           ]
-                        }
-                      }
-                    ])
-                  })
+                        },
+                      },
+                    ]),
+                  }),
                 ],
                 1
               ),
@@ -2159,7 +2159,7 @@ var render = function() {
                     "v-btn",
                     {
                       attrs: { color: "blue darken-1", text: "" },
-                      on: { click: _vm.multiClose }
+                      on: { click: _vm.multiClose },
                     },
                     [_vm._v("Cancel")]
                   ),
@@ -2168,19 +2168,19 @@ var render = function() {
                     "v-btn",
                     {
                       attrs: { color: "blue darken-1", text: "" },
-                      on: { click: _vm.multiSave }
+                      on: { click: _vm.multiSave },
                     },
                     [_vm._v("Save")]
-                  )
+                  ),
                 ],
                 1
-              )
+              ),
             ],
             1
-          )
+          ),
         ],
         1
-      )
+      ),
     ],
     1
   )

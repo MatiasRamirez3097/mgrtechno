@@ -342,7 +342,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -356,20 +356,20 @@ var render = function() {
       "small-chips": _vm.smallChips,
       loading: _vm.loading,
       "no-filter": _vm.noFilter,
-      "persistent-hint": _vm.persistentHint
+      "persistent-hint": _vm.persistentHint,
     },
     on: {
-      "update:searchInput": function($event) {
+      "update:searchInput": function ($event) {
         _vm.search = $event
       },
-      "update:search-input": function($event) {
+      "update:search-input": function ($event) {
         _vm.search = $event
-      }
+      },
     },
     scopedSlots: _vm._u([
       {
         key: "no-data",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "v-list-item",
@@ -384,26 +384,26 @@ var render = function() {
                       _c("strong", [_vm._v(_vm._s(_vm.noData) + " ")]),
                       _vm._v('". Presiona '),
                       _c("kbd", [_vm._v("enter")]),
-                      _vm._v(" para crearlo\n            ")
-                    ])
+                      _vm._v(" para crearlo\n            "),
+                    ]),
                   ],
                   1
-                )
+                ),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
+        proxy: true,
+      },
     ]),
     model: {
       value: _vm.localValue,
-      callback: function($$v) {
+      callback: function ($$v) {
         _vm.localValue = $$v
       },
-      expression: "localValue"
-    }
+      expression: "localValue",
+    },
   })
 }
 var staticRenderFns = []
@@ -424,7 +424,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -436,30 +436,30 @@ var render = function() {
       items: _vm.desserts,
       options: _vm.options,
       "server-items-length": _vm.serverItemsLength,
-      loading: _vm.loading
+      loading: _vm.loading,
     },
     on: {
-      "update:options": function($event) {
+      "update:options": function ($event) {
         _vm.options = $event
-      }
+      },
     },
     scopedSlots: _vm._u([
       {
         key: "item.serializado",
-        fn: function(ref) {
+        fn: function (ref) {
           var item = ref.item
           return [
             _c(
               "v-chip",
               { attrs: { color: _vm.getColor(item.serializado), dark: "" } },
               [_vm._v(_vm._s(_vm.getLabel(item.serializado)))]
-            )
+            ),
           ]
-        }
+        },
       },
       {
         key: "item.action",
-        fn: function(ref) {
+        fn: function (ref) {
           var item = ref.item
           return [
             _c(
@@ -468,10 +468,10 @@ var render = function() {
                 staticClass: "mr-2",
                 attrs: { small: "" },
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.editItem(item)
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n            edit\n        ")]
             ),
@@ -481,30 +481,30 @@ var render = function() {
               {
                 attrs: { small: "" },
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.deleteItem(item)
-                  }
-                }
+                  },
+                },
               },
               [_vm._v("\n        delete\n        ")]
-            )
+            ),
           ]
-        }
+        },
       },
       {
         key: "no-data",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "v-btn",
               { attrs: { color: "primary" }, on: { click: _vm.initialize } },
               [_vm._v("Refresh")]
-            )
+            ),
           ]
         },
-        proxy: true
-      }
-    ])
+        proxy: true,
+      },
+    ]),
   })
 }
 var staticRenderFns = []
@@ -525,7 +525,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -539,9 +539,9 @@ var render = function() {
           loading: _vm.loading,
           headers: _vm.headers,
           items: _vm.items,
-          classProp: "elevation-1"
-        }
-      })
+          classProp: "elevation-1",
+        },
+      }),
     ],
     1
   )

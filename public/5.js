@@ -367,7 +367,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -382,17 +382,17 @@ var render = function() {
           items: _vm.desserts,
           options: _vm.options,
           "server-items-length": _vm.totalDesserts,
-          loading: _vm.loading
+          loading: _vm.loading,
         },
         on: {
-          "update:options": function($event) {
+          "update:options": function ($event) {
             _vm.options = $event
-          }
+          },
         },
         scopedSlots: _vm._u([
           {
             key: "top",
-            fn: function() {
+            fn: function () {
               return [
                 _c(
                   "v-toolbar",
@@ -402,7 +402,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("v-divider", {
                       staticClass: "mx-4",
-                      attrs: { inset: "", vertical: "" }
+                      attrs: { inset: "", vertical: "" },
                     }),
                     _vm._v(" "),
                     _c("v-spacer"),
@@ -412,15 +412,15 @@ var render = function() {
                         "append-icon": "search",
                         label: "Search",
                         "single-line": "",
-                        "hide-details": ""
+                        "hide-details": "",
                       },
                       model: {
                         value: _vm.search,
-                        callback: function($$v) {
+                        callback: function ($$v) {
                           _vm.search = $$v
                         },
-                        expression: "search"
-                      }
+                        expression: "search",
+                      },
                     }),
                     _vm._v(" "),
                     _c("v-spacer"),
@@ -432,7 +432,7 @@ var render = function() {
                         scopedSlots: _vm._u([
                           {
                             key: "activator",
-                            fn: function(ref) {
+                            fn: function (ref) {
                               var on = ref.on
                               return [
                                 _c(
@@ -441,24 +441,24 @@ var render = function() {
                                     staticClass: "mb-2",
                                     attrs: { color: "primary", dark: "" },
                                     on: {
-                                      click: function($event) {
+                                      click: function ($event) {
                                         return _vm.newItem()
-                                      }
-                                    }
+                                      },
+                                    },
                                   },
                                   [_vm._v("New Item")]
-                                )
+                                ),
                               ]
-                            }
-                          }
+                            },
+                          },
                         ]),
                         model: {
                           value: _vm.dialog,
-                          callback: function($$v) {
+                          callback: function ($$v) {
                             _vm.dialog = $$v
                           },
-                          expression: "dialog"
-                        }
+                          expression: "dialog",
+                        },
                       },
                       [
                         _vm._v(" "),
@@ -468,8 +468,8 @@ var render = function() {
                               [
                                 _c("v-card-title", [
                                   _c("span", { staticClass: "headline" }, [
-                                    _vm._v(_vm._s(_vm.formTitle))
-                                  ])
+                                    _vm._v(_vm._s(_vm.formTitle)),
+                                  ]),
                                 ]),
                                 _vm._v(" "),
                                 _c(
@@ -489,19 +489,19 @@ var render = function() {
                                                 attrs: {
                                                   xs18: "",
                                                   sm9: "",
-                                                  md6: ""
-                                                }
+                                                  md6: "",
+                                                },
                                               },
                                               [
                                                 _c("v-text-field", {
                                                   attrs: {
                                                     label: "Nombre",
-                                                    rules: _vm.nombreRules
+                                                    rules: _vm.nombreRules,
                                                   },
                                                   model: {
                                                     value:
                                                       _vm.selectedItem.nombre,
-                                                    callback: function($$v) {
+                                                    callback: function ($$v) {
                                                       _vm.$set(
                                                         _vm.selectedItem,
                                                         "nombre",
@@ -509,9 +509,9 @@ var render = function() {
                                                       )
                                                     },
                                                     expression:
-                                                      "selectedItem.nombre"
-                                                  }
-                                                })
+                                                      "selectedItem.nombre",
+                                                  },
+                                                }),
                                               ],
                                               1
                                             ),
@@ -522,15 +522,15 @@ var render = function() {
                                                 attrs: {
                                                   xs18: "",
                                                   sm9: "",
-                                                  md6: ""
-                                                }
+                                                  md6: "",
+                                                },
                                               },
                                               [
                                                 _c("v-text-field", {
                                                   attrs: { label: "Telefono" },
                                                   model: {
                                                     value: _vm.selectedItem.tel,
-                                                    callback: function($$v) {
+                                                    callback: function ($$v) {
                                                       _vm.$set(
                                                         _vm.selectedItem,
                                                         "tel",
@@ -538,18 +538,18 @@ var render = function() {
                                                       )
                                                     },
                                                     expression:
-                                                      "selectedItem.tel"
-                                                  }
-                                                })
+                                                      "selectedItem.tel",
+                                                  },
+                                                }),
                                               ],
                                               1
-                                            )
+                                            ),
                                           ],
                                           1
-                                        )
+                                        ),
                                       ],
                                       1
-                                    )
+                                    ),
                                   ],
                                   1
                                 ),
@@ -564,9 +564,9 @@ var render = function() {
                                       {
                                         attrs: {
                                           color: "blue darken-1",
-                                          text: ""
+                                          text: "",
                                         },
-                                        on: { click: _vm.close }
+                                        on: { click: _vm.close },
                                       },
                                       [_vm._v("Cancel")]
                                     ),
@@ -576,15 +576,15 @@ var render = function() {
                                       {
                                         attrs: {
                                           color: "blue darken-1",
-                                          text: ""
+                                          text: "",
                                         },
-                                        on: { click: _vm.save }
+                                        on: { click: _vm.save },
                                       },
                                       [_vm._v("Save")]
-                                    )
+                                    ),
                                   ],
                                   1
-                                )
+                                ),
                               ],
                               1
                             )
@@ -595,8 +595,8 @@ var render = function() {
                                   _c("span", { staticClass: "headline" }, [
                                     _vm._v(
                                       "¿Seguro que quiere eliminar el proveedor?"
-                                    )
-                                  ])
+                                    ),
+                                  ]),
                                 ]),
                                 _vm._v(" "),
                                 _c(
@@ -608,8 +608,8 @@ var render = function() {
                                         attrs: {
                                           dense: _vm.dense,
                                           "fixed-header": _vm.fixedHeader,
-                                          height: _vm.height
-                                        }
+                                          height: _vm.height,
+                                        },
                                       },
                                       [
                                         _c("tbody", [
@@ -619,8 +619,8 @@ var render = function() {
                                             _c("td", [
                                               _vm._v(
                                                 _vm._s(_vm.selectedItem.nombre)
-                                              )
-                                            ])
+                                              ),
+                                            ]),
                                           ]),
                                           _vm._v(" "),
                                           _c("tr", [
@@ -629,12 +629,12 @@ var render = function() {
                                             _c("td", [
                                               _vm._v(
                                                 _vm._s(_vm.selectedItem.tel)
-                                              )
-                                            ])
-                                          ])
-                                        ])
+                                              ),
+                                            ]),
+                                          ]),
+                                        ]),
                                       ]
-                                    )
+                                    ),
                                   ],
                                   1
                                 ),
@@ -649,9 +649,9 @@ var render = function() {
                                       {
                                         attrs: {
                                           color: "blue darken-1",
-                                          text: ""
+                                          text: "",
                                         },
-                                        on: { click: _vm.close }
+                                        on: { click: _vm.close },
                                       },
                                       [_vm._v("Cancel")]
                                     ),
@@ -661,31 +661,31 @@ var render = function() {
                                       {
                                         attrs: {
                                           color: "blue darken-1",
-                                          text: ""
+                                          text: "",
                                         },
-                                        on: { click: _vm.save }
+                                        on: { click: _vm.save },
                                       },
                                       [_vm._v("Save")]
-                                    )
+                                    ),
                                   ],
                                   1
-                                )
+                                ),
                               ],
                               1
-                            )
+                            ),
                       ],
                       1
-                    )
+                    ),
                   ],
                   1
-                )
+                ),
               ]
             },
-            proxy: true
+            proxy: true,
           },
           {
             key: "item.action",
-            fn: function(ref) {
+            fn: function (ref) {
               var item = ref.item
               return [
                 _c(
@@ -694,10 +694,10 @@ var render = function() {
                     staticClass: "mr-2",
                     attrs: { small: "" },
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         return _vm.editItem(item)
-                      }
-                    }
+                      },
+                    },
                   },
                   [_vm._v("\n    edit\n  ")]
                 ),
@@ -707,17 +707,17 @@ var render = function() {
                   {
                     attrs: { small: "" },
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         return _vm.deleteItem(item)
-                      }
-                    }
+                      },
+                    },
                   },
                   [_vm._v("\n    delete\n  ")]
-                )
+                ),
               ]
-            }
-          }
-        ])
+            },
+          },
+        ]),
       }),
       _vm._v(" "),
       _c(
@@ -725,15 +725,15 @@ var render = function() {
         {
           attrs: {
             color: _vm.snackbar.color,
-            multiLine: _vm.snackbar.multiline
+            multiLine: _vm.snackbar.multiline,
           },
           model: {
             value: _vm.snackbar.active,
-            callback: function($$v) {
+            callback: function ($$v) {
               _vm.$set(_vm.snackbar, "active", $$v)
             },
-            expression: "snackbar.active"
-          }
+            expression: "snackbar.active",
+          },
         },
         [
           _c("v-icon", [_vm._v("\n    " + _vm._s(_vm.snackbar.icon) + "\n  ")]),
@@ -745,16 +745,16 @@ var render = function() {
             {
               attrs: { color: "black", text: "" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   _vm.snackbar.active = false
-                }
-              }
+                },
+              },
             },
             [_vm._v("\n      Close\n    ")]
-          )
+          ),
         ],
         1
-      )
+      ),
     ],
     1
   )

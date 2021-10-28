@@ -750,7 +750,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -760,11 +760,11 @@ var render = function() {
       ref: "form",
       model: {
         value: _vm.valid,
-        callback: function($$v) {
+        callback: function ($$v) {
           _vm.valid = $$v
         },
-        expression: "valid"
-      }
+        expression: "valid",
+      },
     },
     [
       _vm._v("\n\t\t" + _vm._s(_vm.item) + "\n\t\t"),
@@ -772,7 +772,9 @@ var render = function() {
         "v-card",
         [
           _c("v-card-title", [
-            _c("span", { staticClass: "headline" }, [_vm._v("Editar producto")])
+            _c("span", { staticClass: "headline" }, [
+              _vm._v("Editar producto"),
+            ]),
           ]),
           _vm._v(" "),
           _c(
@@ -796,16 +798,16 @@ var render = function() {
                               palceholder: "Escribir para buscar",
                               default: _vm.item.codbarras,
                               label: "Producto",
-                              url: "/ajax/codbarras"
+                              url: "/ajax/codbarras",
                             },
                             model: {
                               value: _vm.item.codbarras,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "codbarras", $$v)
                               },
-                              expression: "item.codbarras"
-                            }
-                          })
+                              expression: "item.codbarras",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -819,16 +821,16 @@ var render = function() {
                               default: _vm.item.proveedor,
                               rules: _vm.proveedorRules,
                               url: "/ajax/proveedores",
-                              label: "Proveedor"
+                              label: "Proveedor",
                             },
                             model: {
                               value: _vm.item.proveedor,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "proveedor", $$v)
                               },
-                              expression: "item.proveedor"
-                            }
-                          })
+                              expression: "item.proveedor",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -841,16 +843,16 @@ var render = function() {
                             ref: "fecha_entrada",
                             attrs: {
                               default: _vm.item.fecha_entrada,
-                              label: "Fecha de entrada"
+                              label: "Fecha de entrada",
                             },
                             model: {
                               value: _vm.item.fecha_entrada,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "fecha_entrada", $$v)
                               },
-                              expression: "item.fecha_entrada"
-                            }
-                          })
+                              expression: "item.fecha_entrada",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -862,16 +864,16 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               type: "numeric",
-                              label: "Precio de entrada"
+                              label: "Precio de entrada",
                             },
                             model: {
                               value: _vm.item.precio_entrada,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "precio_entrada", $$v)
                               },
-                              expression: "item.precio_entrada"
-                            }
-                          })
+                              expression: "item.precio_entrada",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -884,16 +886,16 @@ var render = function() {
                             ref: "fecha_salida",
                             attrs: {
                               default: _vm.item.fecha_salida,
-                              label: "Fecha de salida"
+                              label: "Fecha de salida",
                             },
                             model: {
                               value: _vm.item.fecha_salida,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "fecha_salida", $$v)
                               },
-                              expression: "item.fecha_salida"
-                            }
-                          })
+                              expression: "item.fecha_salida",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -906,16 +908,16 @@ var render = function() {
                             attrs: {
                               type: "numeric",
                               label: "Precio de salida",
-                              required: ""
+                              required: "",
                             },
                             model: {
                               value: _vm.item.precio_salida,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "precio_salida", $$v)
                               },
-                              expression: "item.precio_salida"
-                            }
-                          })
+                              expression: "item.precio_salida",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -930,16 +932,16 @@ var render = function() {
                               label: "Cliente",
                               placeholder: "Escribir para buscar",
                               default: _vm.item.cliente,
-                              url: "/ajax/clientes"
+                              url: "/ajax/clientes",
                             },
                             model: {
                               value: _vm.item.cliente,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "cliente", $$v)
                               },
-                              expression: "item.cliente"
-                            }
-                          })
+                              expression: "item.cliente",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -953,26 +955,26 @@ var render = function() {
                                 attrs: {
                                   default: _vm.item.serial,
                                   disabledAll: "",
-                                  url: "/ajax/seriales"
+                                  url: "/ajax/seriales",
                                 },
                                 model: {
                                   value: _vm.item.serial,
-                                  callback: function($$v) {
+                                  callback: function ($$v) {
                                     _vm.$set(_vm.item, "serial", $$v)
                                   },
-                                  expression: "item.serial"
-                                }
-                              })
+                                  expression: "item.serial",
+                                },
+                              }),
                             ],
                             1
                           )
-                        : _vm._e()
+                        : _vm._e(),
                     ],
                     1
-                  )
+                  ),
                 ],
                 1
-              )
+              ),
             ],
             1
           ),
@@ -986,7 +988,7 @@ var render = function() {
                 "v-btn",
                 {
                   attrs: { color: "blue darken-1", text: "" },
-                  on: { click: _vm.close }
+                  on: { click: _vm.close },
                 },
                 [_vm._v("Cancel")]
               ),
@@ -995,16 +997,16 @@ var render = function() {
                 "v-btn",
                 {
                   attrs: { disabled: !_vm.valid, color: "success", text: "" },
-                  on: { click: _vm.save }
+                  on: { click: _vm.save },
                 },
                 [_vm._v("Save")]
-              )
+              ),
             ],
             1
-          )
+          ),
         ],
         1
-      )
+      ),
     ],
     1
   )
@@ -1027,7 +1029,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1045,20 +1047,20 @@ var render = function() {
       label: _vm.label,
       placeholder: _vm.placeholder,
       "prepend-icon": "mdi-database-search",
-      "return-object": ""
+      "return-object": "",
     },
     on: {
-      "update:searchInput": function($event) {
+      "update:searchInput": function ($event) {
         _vm.search = $event
       },
-      "update:search-input": function($event) {
+      "update:search-input": function ($event) {
         _vm.search = $event
-      }
+      },
     },
     scopedSlots: _vm._u([
       {
         key: "item",
-        fn: function(item) {
+        fn: function (item) {
           return [
             _c(
               "v-list-item-content",
@@ -1068,8 +1070,8 @@ var render = function() {
                       domProps: {
                         innerHTML: _vm._s(
                           item.item.marca + " " + item.item.modelo
-                        )
-                      }
+                        ),
+                      },
                     })
                   : _vm._e(),
                 _vm._v(" "),
@@ -1078,50 +1080,50 @@ var render = function() {
                       domProps: {
                         innerHTML: _vm._s(
                           item.item.text + " " + item.item.apellido
-                        )
-                      }
+                        ),
+                      },
                     })
                   : _vm._e(),
                 _vm._v(" "),
                 item.item.documento
                   ? _c("v-list-item-subtitle", {
                       domProps: {
-                        innerHTML: _vm._s("DNI:" + item.item.documento)
-                      }
+                        innerHTML: _vm._s("DNI:" + item.item.documento),
+                      },
                     })
                   : _vm._e(),
                 _vm._v(" "),
                 item.item.ean
                   ? _c("v-list-item-subtitle", {
-                      domProps: { innerHTML: _vm._s("EAN:" + item.item.ean) }
+                      domProps: { innerHTML: _vm._s("EAN:" + item.item.ean) },
                     })
                   : _vm._e(),
                 _vm._v(" "),
                 item.item.ean
                   ? _c("v-list-item-subtitle", {
-                      domProps: { innerHTML: _vm._s("EAN:" + item.item.ean) }
+                      domProps: { innerHTML: _vm._s("EAN:" + item.item.ean) },
                     })
                   : _vm._e(),
                 _vm._v(" "),
                 item.item.upc
                   ? _c("v-list-item-subtitle", {
-                      domProps: { innerHTML: _vm._s("UPC:" + item.item.upc) }
+                      domProps: { innerHTML: _vm._s("UPC:" + item.item.upc) },
                     })
-                  : _vm._e()
+                  : _vm._e(),
               ],
               1
-            )
+            ),
           ]
-        }
-      }
+        },
+      },
     ]),
     model: {
       value: _vm.val,
-      callback: function($$v) {
+      callback: function ($$v) {
         _vm.val = $$v
       },
-      expression: "val"
-    }
+      expression: "val",
+    },
   })
 }
 var staticRenderFns = []
@@ -1142,7 +1144,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1156,20 +1158,20 @@ var render = function() {
       "no-filter": "",
       "persistent-hint": "",
       rules: _vm.rules,
-      multiple: _vm.multiple
+      multiple: _vm.multiple,
     },
     on: {
-      "update:searchInput": function($event) {
+      "update:searchInput": function ($event) {
         _vm.search = $event
       },
-      "update:search-input": function($event) {
+      "update:search-input": function ($event) {
         _vm.search = $event
-      }
+      },
     },
     scopedSlots: _vm._u([
       {
         key: "no-data",
-        fn: function() {
+        fn: function () {
           return [
             _c(
               "v-list-item",
@@ -1182,26 +1184,26 @@ var render = function() {
                       _c("strong", [_vm._v(_vm._s(_vm.search))]),
                       _vm._v('". Presiona '),
                       _c("kbd", [_vm._v("enter")]),
-                      _vm._v(" para crearlo\n\t\t\t\t")
-                    ])
+                      _vm._v(" para crearlo\n\t\t\t\t"),
+                    ]),
                   ],
                   1
-                )
+                ),
               ],
               1
-            )
+            ),
           ]
         },
-        proxy: true
-      }
+        proxy: true,
+      },
     ]),
     model: {
       value: _vm.val,
-      callback: function($$v) {
+      callback: function ($$v) {
         _vm.val = $$v
       },
-      expression: "val"
-    }
+      expression: "val",
+    },
   })
 }
 var staticRenderFns = []
@@ -1222,7 +1224,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1236,20 +1238,20 @@ var render = function() {
         transition: "scale-transition",
         "offset-y": "",
         "full-width": "",
-        "min-width": "290px"
+        "min-width": "290px",
       },
       on: {
-        "update:returnValue": function($event) {
+        "update:returnValue": function ($event) {
           _vm.fecha_value = $event
         },
-        "update:return-value": function($event) {
+        "update:return-value": function ($event) {
           _vm.fecha_value = $event
-        }
+        },
       },
       scopedSlots: _vm._u([
         {
           key: "activator",
-          fn: function(ref) {
+          fn: function (ref) {
             var on = ref.on
             return [
               _c(
@@ -1260,30 +1262,30 @@ var render = function() {
                       label: _vm.label,
                       "prepend-icon": "event",
                       readonly: "",
-                      rules: _vm.fecha_entradaRules
+                      rules: _vm.fecha_entradaRules,
                     },
                     model: {
                       value: _vm.fecha_value,
-                      callback: function($$v) {
+                      callback: function ($$v) {
                         _vm.fecha_value = $$v
                       },
-                      expression: "fecha_value"
-                    }
+                      expression: "fecha_value",
+                    },
                   },
                   on
                 )
-              )
+              ),
             ]
-          }
-        }
+          },
+        },
       ]),
       model: {
         value: _vm.fecha,
-        callback: function($$v) {
+        callback: function ($$v) {
           _vm.fecha = $$v
         },
-        expression: "fecha"
-      }
+        expression: "fecha",
+      },
     },
     [
       _vm._v(" "),
@@ -1293,11 +1295,11 @@ var render = function() {
           attrs: { locale: "es-419", "no-title": "", scrollable: "" },
           model: {
             value: _vm.fecha_value,
-            callback: function($$v) {
+            callback: function ($$v) {
               _vm.fecha_value = $$v
             },
-            expression: "fecha_value"
-          }
+            expression: "fecha_value",
+          },
         },
         [
           _c("v-spacer"),
@@ -1307,10 +1309,10 @@ var render = function() {
             {
               attrs: { text: "", color: "primary" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   _vm.fecha = false
-                }
-              }
+                },
+              },
             },
             [_vm._v("Cancel")]
           ),
@@ -1320,16 +1322,16 @@ var render = function() {
             {
               attrs: { text: "", color: "primary" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.save(_vm.fecha_value)
-                }
-              }
+                },
+              },
             },
             [_vm._v("OK")]
-          )
+          ),
         ],
         1
-      )
+      ),
     ],
     1
   )
@@ -1352,7 +1354,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1362,18 +1364,18 @@ var render = function() {
       ref: "form",
       model: {
         value: _vm.valid,
-        callback: function($$v) {
+        callback: function ($$v) {
           _vm.valid = $$v
         },
-        expression: "valid"
-      }
+        expression: "valid",
+      },
     },
     [
       _c(
         "v-card",
         [
           _c("v-card-title", [
-            _c("span", { staticClass: "headline" }, [_vm._v("Nuevo producto")])
+            _c("span", { staticClass: "headline" }, [_vm._v("Nuevo producto")]),
           ]),
           _vm._v(" "),
           _c(
@@ -1395,16 +1397,16 @@ var render = function() {
                             attrs: {
                               palceholder: "Escribir para buscar",
                               label: "Producto",
-                              url: "/ajax/codbarras"
+                              url: "/ajax/codbarras",
                             },
                             model: {
                               value: _vm.item.codbarras,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "codbarras", $$v)
                               },
-                              expression: "item.codbarras"
-                            }
-                          })
+                              expression: "item.codbarras",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -1417,16 +1419,16 @@ var render = function() {
                             attrs: {
                               rules: _vm.proveedorRules,
                               url: "/ajax/proveedores",
-                              label: "Proveedor"
+                              label: "Proveedor",
                             },
                             model: {
                               value: _vm.item.proveedor,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "proveedor", $$v)
                               },
-                              expression: "item.proveedor"
-                            }
-                          })
+                              expression: "item.proveedor",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -1444,12 +1446,12 @@ var render = function() {
                             attrs: { label: "Fecha de entrada" },
                             model: {
                               value: _vm.item.fecha_entrada,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "fecha_entrada", $$v)
                               },
-                              expression: "item.fecha_entrada"
-                            }
-                          })
+                              expression: "item.fecha_entrada",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -1461,16 +1463,16 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               type: "numeric",
-                              label: "Precio de entrada"
+                              label: "Precio de entrada",
                             },
                             model: {
                               value: _vm.item.precio_entrada,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "precio_entrada", $$v)
                               },
-                              expression: "item.precio_entrada"
-                            }
-                          })
+                              expression: "item.precio_entrada",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -1484,12 +1486,12 @@ var render = function() {
                             attrs: { label: "Fecha de salida" },
                             model: {
                               value: _vm.item.fecha_salida,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "fecha_salida", $$v)
                               },
-                              expression: "item.fecha_salida"
-                            }
-                          })
+                              expression: "item.fecha_salida",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -1502,16 +1504,16 @@ var render = function() {
                             attrs: {
                               type: "numeric",
                               label: "Precio de salida",
-                              required: ""
+                              required: "",
                             },
                             model: {
                               value: _vm.item.precio_salida,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "precio_salida", $$v)
                               },
-                              expression: "item.precio_salida"
-                            }
-                          })
+                              expression: "item.precio_salida",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -1524,16 +1526,16 @@ var render = function() {
                             attrs: {
                               label: "Cliente",
                               placeholder: "Escribir para buscar",
-                              url: "/ajax/clientes"
+                              url: "/ajax/clientes",
                             },
                             model: {
                               value: _vm.item.cliente,
-                              callback: function($$v) {
+                              callback: function ($$v) {
                                 _vm.$set(_vm.item, "cliente", $$v)
                               },
-                              expression: "item.cliente"
-                            }
-                          })
+                              expression: "item.cliente",
+                            },
+                          }),
                         ],
                         1
                       ),
@@ -1548,26 +1550,26 @@ var render = function() {
                                   label: "Seriales",
                                   url: "/ajax/seriales",
                                   multiple: "",
-                                  disabledAll: ""
+                                  disabledAll: "",
                                 },
                                 model: {
                                   value: _vm.item.seriales,
-                                  callback: function($$v) {
+                                  callback: function ($$v) {
                                     _vm.$set(_vm.item, "seriales", $$v)
                                   },
-                                  expression: "item.seriales"
-                                }
-                              })
+                                  expression: "item.seriales",
+                                },
+                              }),
                             ],
                             1
                           )
-                        : _vm._e()
+                        : _vm._e(),
                     ],
                     1
-                  )
+                  ),
                 ],
                 1
-              )
+              ),
             ],
             1
           ),
@@ -1581,7 +1583,7 @@ var render = function() {
                 "v-btn",
                 {
                   attrs: { color: "blue darken-1", text: "" },
-                  on: { click: _vm.close }
+                  on: { click: _vm.close },
                 },
                 [_vm._v("Cancel")]
               ),
@@ -1590,16 +1592,16 @@ var render = function() {
                 "v-btn",
                 {
                   attrs: { disabled: !_vm.valid, color: "success", text: "" },
-                  on: { click: _vm.save }
+                  on: { click: _vm.save },
                 },
                 [_vm._v("Save")]
-              )
+              ),
             ],
             1
-          )
+          ),
         ],
         1
-      )
+      ),
     ],
     1
   )
@@ -1622,7 +1624,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1632,11 +1634,11 @@ var render = function() {
       attrs: { persistent: "", "max-width": "600px" },
       model: {
         value: _vm.state,
-        callback: function($$v) {
+        callback: function ($$v) {
           _vm.state = $$v
         },
-        expression: "state"
-      }
+        expression: "state",
+      },
     },
     [_c("newItemForm")],
     1

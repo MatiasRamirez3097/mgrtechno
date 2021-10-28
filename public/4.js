@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -117,25 +117,25 @@ var render = function() {
         attrs: {
           title: "Compras",
           headers: _vm.headers,
-          url: "/datatables/getcompras"
+          url: "/datatables/getcompras",
         },
         on: {
           edit: _vm.dialEdit,
-          new: function($event) {
+          new: function ($event) {
             _vm.val = true
-          }
-        }
+          },
+        },
       }),
       _vm._v(" "),
       _c("vdialog", {
         ref: "dialog",
         attrs: { state: _vm.val },
         on: {
-          "update:state": function($event) {
+          "update:state": function ($event) {
             _vm.val = $event
-          }
-        }
-      })
+          },
+        },
+      }),
     ],
     1
   )
