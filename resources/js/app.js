@@ -9,16 +9,12 @@ import '@mdi/font/css/materialdesignicons.css'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import store from './store'
-import datatable from './components/tables/datatable.vue'
+import {datatable} from './components'
 Vue.use(Vuetify)
 Vue.use(VueRouter)
 const routes = [
                   { 
-                    component: () => import('./pages/stock.vue'),
-                    path: "/altastock"
-                  },
-                  { 
-                    component: () => import('./pages/Compras.vue'),
+                    component: () => import('./pages/compras.vue'),
                     path: "/compras"
                   },
                   {

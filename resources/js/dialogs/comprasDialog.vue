@@ -5,7 +5,7 @@
 </template>
 <script>
 	import {mapState} from 'vuex'
-	import comprasNew from './forms/comprasNew'
+	import comprasNew from '../forms/comprasNew'
 	export default{
 		components:
 		{

@@ -1,10 +1,11 @@
 <template>
-	<v-dialog persistent v-model="state" max-width="600px">
+	<v-dialog persistent v-model="dialog" max-width="600px">
 		<ventasNew></ventasNew> 
   	</v-dialog>
 </template>
 <script>
-	import ventasNew from './forms/ventasNew'
+	import {mapState} from 'vuex'
+	import ventasNew from '../forms/ventasNew'
 	export default{
 		components:
 		{
@@ -31,7 +32,8 @@
 				{
 					this.$store.commit('setDialog', value)
 				}
-			}
+			},
+			...mapState(['dialog'])
 		},
 		data()
 		{

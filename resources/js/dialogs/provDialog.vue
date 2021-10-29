@@ -1,11 +1,11 @@
 <template>
-	<v-dialog persistent v-model="state" max-width="600px">
+	<v-dialog persistent v-model="dialog" max-width="600px">
 		<provsNew></provsNew> 
   	</v-dialog>
 </template>
 <script>
 	import {mapState} from 'vuex'
-	import provsNew from './forms/provsNew'
+	import provsNew from '../forms/provsNew'
 	export default{
 		components:
 		{

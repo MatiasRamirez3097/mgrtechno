@@ -21,8 +21,8 @@
 	</v-card>
 </template>
 <script>
-	import comprasDialog from '../components/tables/stock/vdialogs/comprasDialog.vue'
-	import datatable from '../components/tables/datatable.vue'
+	import comprasDialog from '../dialogs/comprasDialog.vue'
+	import {datatable} from '../components'
 	export default
 	{
 		components:
@@ -76,36 +76,6 @@
 			{
 				this.val = value
 			}
-			/*getDataFromApi () {
-      			this.loading = true
-          		const { sortBy, descending, page, itemsPerPage, sortDesc } = this.options
-          		axios.post('/datatables/getstock',
-    			{
-		            datafilter: this.disponible,
-		            sortDesc: this.options.sortDesc,
-		            search: this.search,
-		            sortBy: this.options.sortBy,
-		            descending: this.options.descending,
-		            page: this.options.page,
-		            itemsPerPage: this.options.itemsPerPage
-        		}).then(response => {
-		            this.desserts = response.data.data
-		            this.totalDesserts = response.data.total
-		            this.loading = false;
-              		this.$store.commit('setRunSearch',false)
-        		});
-    		},*/
 		},
-		watch:
-		{
-			val:
-			{
-				handler()
-				{
-					//this.getDialog = this.val;
-				},
-				deep: true
-			}
-		}
 	}
 </script>

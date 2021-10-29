@@ -1,98 +1,19 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/dialogs/ventasDialog.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/dialogs/ventasDialog.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      isLoading: false,
-      val: this["default"],
-      items: [],
-      search: ""
-    };
-  },
-  methods: {
-    save: function save() {
-      this.$emit('input', this.val);
-    }
-  },
-  props: ['label', 'placeholder', 'url', 'value', 'default', 'itemsValue'],
-  watch: {
-    val: {
-      handler: function handler() {
-        this.save();
-      },
-      deep: true
-    },
-    search: function search(val) {
-      var _this = this;
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _forms_ventasNew__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../forms/ventasNew */ "./resources/js/forms/ventasNew.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-      this.isLoading = true;
-      axios.post(this.url, {
-        search: val
-      }).then(function (response) {
-        //if(this.items) this.items = response.data;
-        _this.isLoading = false;
-      });
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var _data$methods$props$p;
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -101,295 +22,302 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = (_data$methods$props$p = {
-  data: function data() {
-    return {
-      search: null,
-      val: this["default"],
-      values: []
-    };
-  },
-  methods: {
-    getData: function getData() {
-      var _this = this;
 
-      axios.post(this.url, {
-        search: this.search
-      }).then(function (response) {
-        if (_this.disabledAll == true) {
-          var filter = _this["default"];
-          var a = [];
-          response.data.forEach(function (item) {
-            if (item.text != filter) {
-              a.push({
-                value: item.value,
-                disabled: true,
-                text: item.text
-              });
-            } else if (item.text == filter) {
-              console.log(item.value);
-              a.push({
-                value: item.value,
-                disabled: false,
-                text: item.text
-              });
-            }
-          });
-          _this.values = a;
-        } else {
-          _this.values = response.data;
-        }
-      });
-    },
-    save: function save() {
-      this.$emit('input', this.val);
-    }
-  },
-  props: ['url', 'rules', 'label', 'disabledAll', 'multiple', 'default']
-}, _defineProperty(_data$methods$props$p, "props", {
-  hint: {
-    type: String
-  },
-  url: {
-    type: String
-  },
-  rules: {
-    type: Array
-  },
-  label: {
-    type: String
-  },
-  disabledAll: {
-    type: Boolean
-  },
-  multiple: {
-    type: Boolean
-  },
-  "default": {}
-}), _defineProperty(_data$methods$props$p, "watch", {
-  search: {
-    handler: function handler() {
-      this.getData();
-    },
-    deep: true
-  },
-  val: {
-    handler: function handler() {
-      this.save();
-    },
-    deep: true
-  }
-}), _data$methods$props$p);
 
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ventasNew: _forms_ventasNew__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  computed: _objectSpread({
+    getAction: {
+      get: function get() {
+        return this.$store.getters.getAction;
+      },
+      set: function set(value) {
+        this.$store.commit('setAction', value);
+      }
+    },
+    getDialog: {
+      get: function get() {
+        return this.$store.getters.getDialog;
+      },
+      set: function set(value) {
+        this.$store.commit('setDialog', value);
+      }
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['dialog'])),
   data: function data() {
     return {
-      fecha: false,
-      fecha_value: this["default"],
+      serialesRules: [function (v) {
+        return !!v || 'Debe ingresar al menos un serial';
+      }],
+      codbarrasRules: [function (v) {
+        return !!v || 'Producto requerido';
+      }],
+      precio_entradaRules: [function (v) {
+        return !!v || 'Precio de entrada requerido';
+      }],
+      proveedorRules: [function (v) {
+        return !!v || 'Proveedor requerido';
+      } //v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      ],
       fecha_entradaRules: [function (v) {
         return !!v || 'Fecha de entrada requerida';
       }]
     };
   },
-  props: ['label', 'value', 'default'],
   methods: {
-    save: function save(value) {
-      this.$refs.fecha.save(this.fecha_value);
-      this.$emit('input', this.fecha_value);
-    }
+    /*close () {
+    	this.getDialog = false;
+    		setTimeout(() => {
+       		this.$store.commit('setRunSearch', true)
+    		}, 300)
+    },*/
+  },
+  props: {
+    state: Boolean
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=template&id=b31eb710&":
-/*!******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=template&id=b31eb710& ***!
-  \******************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/forms/ventasNew.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/forms/ventasNew.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("v-autocomplete", {
-    attrs: {
-      items: _vm.items,
-      loading: _vm.isLoading,
-      "search-input": _vm.search,
-      color: "white",
-      "hide-no-data": "",
-      "hide-selected": "",
-      "item-text": "text",
-      "item-value": _vm.itemsValue,
-      "no-filter": "",
-      label: _vm.label,
-      placeholder: _vm.placeholder,
-      "prepend-icon": "mdi-database-search",
-      "return-object": ""
-    },
-    on: {
-      "update:searchInput": function($event) {
-        _vm.search = $event
-      },
-      "update:search-input": function($event) {
-        _vm.search = $event
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components */ "./resources/js/components/index.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    autocomplete: _components__WEBPACK_IMPORTED_MODULE_0__["autocomplete"],
+    combobox: _components__WEBPACK_IMPORTED_MODULE_0__["combobox"],
+    datepicker: _components__WEBPACK_IMPORTED_MODULE_0__["datepicker"]
+  },
+  computed: {
+    serializado: function serializado() {
+      if (this.item.codbarras) {
+        if (this.item.codbarras.serializado == true) {
+          return true;
+        }
       }
-    },
-    scopedSlots: _vm._u(
-      [
-        _vm.items
-          ? {
-              key: "item",
-              fn: function(item) {
-                return [
-                  _c(
-                    "v-list-item-content",
-                    [
-                      item.item.modelo
-                        ? _c("v-list-item-title", {
-                            domProps: {
-                              innerHTML: _vm._s(
-                                item.item.marca + " " + item.item.modelo
-                              )
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      item.item.text
-                        ? _c("v-list-item-title", {
-                            domProps: {
-                              innerHTML: _vm._s(
-                                item.item.text + " " + item.item.apellido
-                              )
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      item.item.documento
-                        ? _c("v-list-item-subtitle", {
-                            domProps: {
-                              innerHTML: _vm._s("DNI:" + item.item.documento)
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      item.item.ean
-                        ? _c("v-list-item-subtitle", {
-                            domProps: {
-                              innerHTML: _vm._s("EAN:" + item.item.ean)
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      item.item.ean
-                        ? _c("v-list-item-subtitle", {
-                            domProps: {
-                              innerHTML: _vm._s("EAN:" + item.item.ean)
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      item.item.upc
-                        ? _c("v-list-item-subtitle", {
-                            domProps: {
-                              innerHTML: _vm._s("UPC:" + item.item.upc)
-                            }
-                          })
-                        : _vm._e()
-                    ],
-                    1
-                  )
-                ]
-              }
-            }
-          : null
+
+      return false;
+    }
+  },
+  data: function data() {
+    return {
+      serialesRules: [function (v) {
+        return !!v || 'Debe ingresar al menos un serial';
+      }],
+      codbarrasRules: [function (v) {
+        return !!v || 'Producto requerido';
+      }],
+      precio_entradaRules: [function (v) {
+        return !!v || 'Precio de entrada requerido';
+      }],
+      clienteRules: [function (v) {
+        return !!v || 'Cliente requerido';
+      } //v => (v && v.length <= 10) || 'Name must be less than 10 characters',
       ],
-      null,
-      true
-    ),
-    model: {
-      value: _vm.val,
-      callback: function($$v) {
-        _vm.val = $$v
+      fechaRules: [function (v) {
+        return !!v || 'Fecha de entrada requerida';
+      }],
+      //fecha_entrada: false,
+      //fecha_salida: false,
+      isLoading: false,
+      //searchAuto: null,
+      //searchAutoClientes: null,
+      item: {
+        id: 0,
+        cliente: "",
+        factura: "",
+        usuario: null,
+        estado: "",
+        total: 0,
+        fecha: null
       },
-      expression: "val"
+      valid: true
+    };
+  },
+  methods: {
+    close: function close() {
+      var _this = this;
+
+      this.$store.commit('setDialog', false);
+      this.$store.commit('setAction', null);
+      setTimeout(function () {
+        _this.selectedItem = Object.assign({}, _this.defaultItem);
+        _this.editedIndex = -1; //this.getDataFromApi();
+      }, 300);
+    },
+    save: function save() {
+      axios.post('/admin/stock/nuevo', this.item).then(function (response) {});
+      this.close();
     }
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
+  },
+  props: {
+    multiple: Boolean,
+    disabledAll: Boolean
+  }
+});
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=template&id=05f650e6&":
-/*!**************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=template&id=05f650e6& ***!
-  \**************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ventas.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ventas.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _dialogs_ventasDialog_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../dialogs/ventasDialog.vue */ "./resources/js/dialogs/ventasDialog.vue");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components */ "./resources/js/components/index.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    datatable: _components__WEBPACK_IMPORTED_MODULE_1__["datatable"],
+    vdialog: _dialogs_ventasDialog_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    getDialog: {
+      get: function get() {
+        return this.$store.getters.getDialog;
+      },
+      set: function set(value) {
+        this.$store.commit('setDialog', value);
+      }
+    }
+  },
+  data: function data() {
+    return {
+      search: '',
+      headers: [{
+        text: 'Cliente',
+        value: 'nombre'
+      }, {
+        text: 'Factura',
+        value: 'factura'
+      }, {
+        text: 'Usuario',
+        value: 'usuario'
+      }, {
+        text: 'Estado',
+        value: 'estado'
+      }, {
+        text: 'Total',
+        value: 'total'
+      }, {
+        text: 'Fecha',
+        value: 'fecha'
+      }, {
+        text: 'Actions',
+        value: 'action',
+        sortable: false
+      }],
+      expanded: [],
+      items: [],
+      loading: true,
+      multiSalida: [],
+      options: {},
+      singleExpand: false,
+      totalItems: 0,
+      val: false
+    };
+  },
+  methods: {
+    open: function open() {
+      this.getDialog = true;
+    },
+    dialEdit: function dialEdit(value) {
+      this.val = value;
+    }
+    /*getDataFromApi () {
+       			this.loading = true
+           		const { sortBy, descending, page, itemsPerPage, sortDesc } = this.options
+           		axios.post('/datatables/getstock',
+     			{
+               datafilter: this.disponible,
+               sortDesc: this.options.sortDesc,
+               search: this.search,
+               sortBy: this.options.sortBy,
+               descending: this.options.descending,
+               page: this.options.page,
+               itemsPerPage: this.options.itemsPerPage
+         		}).then(response => {
+               this.desserts = response.data.data
+               this.totalDesserts = response.data.total
+               this.loading = false;
+               		this.$store.commit('setRunSearch',false)
+         		});
+     		},*/
+
+  },
+  watch: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/dialogs/ventasDialog.vue?vue&type=template&id=76365331&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/dialogs/ventasDialog.vue?vue&type=template&id=76365331& ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -397,193 +325,138 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("v-combobox", {
-    attrs: {
-      items: _vm.values,
-      "search-input": _vm.search,
-      "hide-selected": "",
-      hint: _vm.hint,
-      label: _vm.label,
-      "no-filter": "",
-      "persistent-hint": "",
-      rules: _vm.rules,
-      multiple: _vm.multiple
-    },
-    on: {
-      "update:searchInput": function($event) {
-        _vm.search = $event
-      },
-      "update:search-input": function($event) {
-        _vm.search = $event
-      }
-    },
-    scopedSlots: _vm._u([
-      {
-        key: "no-data",
-        fn: function() {
-          return [
-            _c(
-              "v-list-item",
-              [
-                _c(
-                  "v-list-item-content",
-                  [
-                    _c("v-list-item-title", [
-                      _vm._v('\n\t\t\t\t\tNo se encontraron resultados para "'),
-                      _c("strong", [_vm._v(_vm._s(_vm.search))]),
-                      _vm._v('". Presiona '),
-                      _c("kbd", [_vm._v("enter")]),
-                      _vm._v(" para crearlo\n\t\t\t\t")
-                    ])
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ]
-        },
-        proxy: true
-      }
-    ]),
-    model: {
-      value: _vm.val,
-      callback: function($$v) {
-        _vm.val = $$v
-      },
-      expression: "val"
-    }
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=template&id=6bd5c64c&":
-/*!****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=template&id=6bd5c64c& ***!
-  \****************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-menu",
+    "v-dialog",
     {
-      ref: "fecha",
-      attrs: {
-        "close-on-content-click": false,
-        "return-value": _vm.fecha_value,
-        transition: "scale-transition",
-        "offset-y": "",
-        "min-width": "290px"
-      },
-      on: {
-        "update:returnValue": function($event) {
-          _vm.fecha_value = $event
-        },
-        "update:return-value": function($event) {
-          _vm.fecha_value = $event
-        }
-      },
-      scopedSlots: _vm._u([
-        {
-          key: "activator",
-          fn: function(ref) {
-            var on = ref.on
-            return [
-              _c(
-                "v-text-field",
-                _vm._g(
-                  {
-                    attrs: {
-                      label: _vm.label,
-                      "prepend-icon": "event",
-                      readonly: "",
-                      rules: _vm.fecha_entradaRules
-                    },
-                    model: {
-                      value: _vm.fecha_value,
-                      callback: function($$v) {
-                        _vm.fecha_value = $$v
-                      },
-                      expression: "fecha_value"
-                    }
-                  },
-                  on
-                )
-              )
-            ]
-          }
-        }
-      ]),
+      attrs: { persistent: "", "max-width": "600px" },
       model: {
-        value: _vm.fecha,
-        callback: function($$v) {
-          _vm.fecha = $$v
+        value: _vm.dialog,
+        callback: function ($$v) {
+          _vm.dialog = $$v
         },
-        expression: "fecha"
-      }
+        expression: "dialog",
+      },
+    },
+    [_c("ventasNew")],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/forms/ventasNew.vue?vue&type=template&id=4254260b&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/forms/ventasNew.vue?vue&type=template&id=4254260b& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-form",
+    {
+      ref: "form",
+      model: {
+        value: _vm.valid,
+        callback: function ($$v) {
+          _vm.valid = $$v
+        },
+        expression: "valid",
+      },
     },
     [
-      _vm._v(" "),
       _c(
-        "v-date-picker",
-        {
-          attrs: { locale: "es-419", "no-title": "", scrollable: "" },
-          model: {
-            value: _vm.fecha_value,
-            callback: function($$v) {
-              _vm.fecha_value = $$v
-            },
-            expression: "fecha_value"
-          }
-        },
+        "v-card",
         [
-          _c("v-spacer"),
+          _c("v-card-title", [
+            _c("span", { staticClass: "headline" }, [_vm._v("Nueva venta")]),
+          ]),
           _vm._v(" "),
           _c(
-            "v-btn",
-            {
-              attrs: { text: "", color: "primary" },
-              on: {
-                click: function($event) {
-                  _vm.fecha = false
-                }
-              }
-            },
-            [_vm._v("Cancel")]
+            "v-card-text",
+            [
+              _c(
+                "v-container",
+                { attrs: { "grid-list-mid": "" } },
+                [
+                  _c(
+                    "v-layout",
+                    { attrs: { wrap: "" } },
+                    [
+                      _c(
+                        "v-flex",
+                        { attrs: { xs18: "", sm9: "", md6: "" } },
+                        [
+                          _c("autocomplete", {
+                            attrs: {
+                              label: "Cliente",
+                              placeholder: "Escribir para buscar",
+                              url: "/ajax/clientes",
+                            },
+                            model: {
+                              value: _vm.item.cliente,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.item, "cliente", $$v)
+                              },
+                              expression: "item.cliente",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
-            "v-btn",
-            {
-              attrs: { text: "", color: "primary" },
-              on: {
-                click: function($event) {
-                  return _vm.save(_vm.fecha_value)
-                }
-              }
-            },
-            [_vm._v("OK")]
-          )
+            "v-card-actions",
+            [
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  attrs: { color: "blue darken-1", text: "" },
+                  on: { click: _vm.close },
+                },
+                [_vm._v("Cancel")]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  attrs: { disabled: !_vm.valid, color: "success", text: "" },
+                  on: { click: _vm.save },
+                },
+                [_vm._v("Save")]
+              ),
+            ],
+            1
+          ),
         ],
         1
-      )
+      ),
     ],
     1
   )
@@ -595,18 +468,65 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue ***!
-  \*****************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ventas.vue?vue&type=template&id=f44baa60&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ventas.vue?vue&type=template&id=f44baa60& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-card",
+    [
+      _c("datatable", {
+        attrs: {
+          title: "Ventas",
+          headers: _vm.headers,
+          url: "/datatables/getventas",
+        },
+        on: { edit: _vm.dialEdit, new: _vm.open },
+      }),
+      _vm._v(" "),
+      _c("vdialog", {
+        ref: "dialog",
+        attrs: { state: _vm.val },
+        on: {
+          "update:state": function ($event) {
+            _vm.val = $event
+          },
+        },
+      }),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/dialogs/ventasDialog.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/dialogs/ventasDialog.vue ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _autocomplete_vue_vue_type_template_id_b31eb710___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocomplete.vue?vue&type=template&id=b31eb710& */ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=template&id=b31eb710&");
-/* harmony import */ var _autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./autocomplete.vue?vue&type=script&lang=js& */ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ventasDialog_vue_vue_type_template_id_76365331___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ventasDialog.vue?vue&type=template&id=76365331& */ "./resources/js/dialogs/ventasDialog.vue?vue&type=template&id=76365331&");
+/* harmony import */ var _ventasDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ventasDialog.vue?vue&type=script&lang=js& */ "./resources/js/dialogs/ventasDialog.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -615,9 +535,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _autocomplete_vue_vue_type_template_id_b31eb710___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _autocomplete_vue_vue_type_template_id_b31eb710___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ventasDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ventasDialog_vue_vue_type_template_id_76365331___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ventasDialog_vue_vue_type_template_id_76365331___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -627,55 +547,55 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue"
+component.options.__file = "resources/js/dialogs/ventasDialog.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************!*\
-  !*** ./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************/
+/***/ "./resources/js/dialogs/ventasDialog.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/dialogs/ventasDialog.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./autocomplete.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ventasDialog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/dialogs/ventasDialog.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=template&id=b31eb710&":
-/*!************************************************************************************************************************!*\
-  !*** ./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=template&id=b31eb710& ***!
-  \************************************************************************************************************************/
+/***/ "./resources/js/dialogs/ventasDialog.vue?vue&type=template&id=76365331&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/dialogs/ventasDialog.vue?vue&type=template&id=76365331& ***!
+  \******************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_template_id_b31eb710___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./autocomplete.vue?vue&type=template&id=b31eb710& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/autocomplete.vue?vue&type=template&id=b31eb710&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_template_id_b31eb710___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasDialog_vue_vue_type_template_id_76365331___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ventasDialog.vue?vue&type=template&id=76365331& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/dialogs/ventasDialog.vue?vue&type=template&id=76365331&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasDialog_vue_vue_type_template_id_76365331___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_template_id_b31eb710___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasDialog_vue_vue_type_template_id_76365331___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue ***!
-  \*************************************************************************************/
+/***/ "./resources/js/forms/ventasNew.vue":
+/*!******************************************!*\
+  !*** ./resources/js/forms/ventasNew.vue ***!
+  \******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _combobox_vue_vue_type_template_id_05f650e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./combobox.vue?vue&type=template&id=05f650e6& */ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=template&id=05f650e6&");
-/* harmony import */ var _combobox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./combobox.vue?vue&type=script&lang=js& */ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ventasNew_vue_vue_type_template_id_4254260b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ventasNew.vue?vue&type=template&id=4254260b& */ "./resources/js/forms/ventasNew.vue?vue&type=template&id=4254260b&");
+/* harmony import */ var _ventasNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ventasNew.vue?vue&type=script&lang=js& */ "./resources/js/forms/ventasNew.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -684,9 +604,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _combobox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _combobox_vue_vue_type_template_id_05f650e6___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _combobox_vue_vue_type_template_id_05f650e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ventasNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ventasNew_vue_vue_type_template_id_4254260b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ventasNew_vue_vue_type_template_id_4254260b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -696,55 +616,55 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue"
+component.options.__file = "resources/js/forms/ventasNew.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************!*\
-  !*** ./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************/
+/***/ "./resources/js/forms/ventasNew.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/forms/ventasNew.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_combobox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./combobox.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_combobox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ventasNew.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/forms/ventasNew.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=template&id=05f650e6&":
-/*!********************************************************************************************************************!*\
-  !*** ./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=template&id=05f650e6& ***!
-  \********************************************************************************************************************/
+/***/ "./resources/js/forms/ventasNew.vue?vue&type=template&id=4254260b&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/forms/ventasNew.vue?vue&type=template&id=4254260b& ***!
+  \*************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_combobox_vue_vue_type_template_id_05f650e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./combobox.vue?vue&type=template&id=05f650e6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/combobox.vue?vue&type=template&id=05f650e6&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_combobox_vue_vue_type_template_id_05f650e6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasNew_vue_vue_type_template_id_4254260b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ventasNew.vue?vue&type=template&id=4254260b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/forms/ventasNew.vue?vue&type=template&id=4254260b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasNew_vue_vue_type_template_id_4254260b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_combobox_vue_vue_type_template_id_05f650e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ventasNew_vue_vue_type_template_id_4254260b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue ***!
-  \***************************************************************************************/
+/***/ "./resources/js/pages/ventas.vue":
+/*!***************************************!*\
+  !*** ./resources/js/pages/ventas.vue ***!
+  \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _datepicker_vue_vue_type_template_id_6bd5c64c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datepicker.vue?vue&type=template&id=6bd5c64c& */ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=template&id=6bd5c64c&");
-/* harmony import */ var _datepicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datepicker.vue?vue&type=script&lang=js& */ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ventas_vue_vue_type_template_id_f44baa60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ventas.vue?vue&type=template&id=f44baa60& */ "./resources/js/pages/ventas.vue?vue&type=template&id=f44baa60&");
+/* harmony import */ var _ventas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ventas.vue?vue&type=script&lang=js& */ "./resources/js/pages/ventas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -753,9 +673,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _datepicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _datepicker_vue_vue_type_template_id_6bd5c64c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _datepicker_vue_vue_type_template_id_6bd5c64c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ventas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ventas_vue_vue_type_template_id_f44baa60___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ventas_vue_vue_type_template_id_f44baa60___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -765,38 +685,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue"
+component.options.__file = "resources/js/pages/ventas.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************!*\
-  !*** ./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************/
+/***/ "./resources/js/pages/ventas.vue?vue&type=script&lang=js&":
+/*!****************************************************************!*\
+  !*** ./resources/js/pages/ventas.vue?vue&type=script&lang=js& ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_datepicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./datepicker.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_datepicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ventas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ventas.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ventas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ventas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=template&id=6bd5c64c&":
-/*!**********************************************************************************************************************!*\
-  !*** ./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=template&id=6bd5c64c& ***!
-  \**********************************************************************************************************************/
+/***/ "./resources/js/pages/ventas.vue?vue&type=template&id=f44baa60&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/pages/ventas.vue?vue&type=template&id=f44baa60& ***!
+  \**********************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datepicker_vue_vue_type_template_id_6bd5c64c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./datepicker.vue?vue&type=template&id=6bd5c64c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tables/stock/vdialogs/forms/formInputs/datepicker.vue?vue&type=template&id=6bd5c64c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datepicker_vue_vue_type_template_id_6bd5c64c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ventas_vue_vue_type_template_id_f44baa60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ventas.vue?vue&type=template&id=f44baa60& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ventas.vue?vue&type=template&id=f44baa60&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ventas_vue_vue_type_template_id_f44baa60___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datepicker_vue_vue_type_template_id_6bd5c64c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ventas_vue_vue_type_template_id_f44baa60___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

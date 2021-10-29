@@ -33,10 +33,7 @@
     </v-form>
 </template>
 <script>
-	import combobox from './formInputs/combobox'
-	import datepicker from './formInputs/datepicker'
-	import autocomplete from './formInputs/autocomplete'
-import Datepicker from './formInputs/datepicker.vue'
+import {autocomplete, combobox, datepicker} from '../components'
 
 	export default{
 		components:
