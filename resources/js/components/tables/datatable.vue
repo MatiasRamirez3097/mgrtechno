@@ -20,7 +20,7 @@
           <v-text-field
   	        v-model="search"
   	        append-icon="search"
-  	        label="Search"
+  	        label="Buscar"
   	        single-line
   	        hide-details
   	       ></v-text-field>
@@ -306,7 +306,7 @@
             </v-dialog>
           </v-toolbar>-->
         </template>
-        <template v-slot:expanded-item="{ item }">
+        <!--<template v-slot:expanded-item="{ item }">
           <td :colspan="headers.length">
             <v-simple-table
                     fixed-header
@@ -330,7 +330,7 @@
                     </tbody>
                   </v-simple-table>
           </td>
-        		</template>
+        		</template>-->
       		<template v-slot:item.action="{ item }">
         			<v-icon small class="mr-2" @click="outItem(item)">
           			done
@@ -402,7 +402,19 @@
           this.getDataFromApi()
         },
         deep: true
+      },
+      options:
+      {
+        handler()
+        {
+          this.getDataFromApi()
+        },
+        deep: true
       }
+    },
+    mounted()
+    {
+      this.getDataFromApi();
     }
   }
 </script>

@@ -59,7 +59,6 @@ class AjaxController extends Controller
 	public function getProveedores(Request $request){
 		$filtro = $request->search;
 		$ajax = Proveedores::select('proveedores.nombre as text','proveedores.id')
-								->where('proveedores.estado','=', true)
 								->where('proveedores.nombre','ilike', "%$filtro%")
 								->get();
 		return Response::json($ajax);	

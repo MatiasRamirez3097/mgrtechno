@@ -4,10 +4,10 @@
 			title="Compras" 
 			:headers="headers" 
 			v-on:edit="dialEdit" 
-			v-on:new="val = true" 
+			v-on:new="open" 
 			url="/datatables/getcompras">
 		</datatable>		
-		<vdialog ref="dialog" :state.sync="val"></vdialog>
+		<comprasDialog ref="dialog" :state.sync="val"></comprasDialog>
 		<!--<v-dialog ref="dialog" persistent v-model="val" max-width="600px">
 			<v-card>
 				<v-card-text>
@@ -21,14 +21,27 @@
 	</v-card>
 </template>
 <script>
-	import vdialog from '../components/tables/stock/vdialogs/stockDialog.vue'
+	import comprasDialog from '../components/tables/stock/vdialogs/comprasDialog.vue'
 	import datatable from '../components/tables/datatable.vue'
 	export default
 	{
 		components:
 		{
 			datatable,
-			vdialog
+			comprasDialog
+		},
+		computed:
+		{
+			getDialog: {
+				get()
+				{
+					return this.$store.getters.getDialog
+				},
+				set(value)
+				{
+					this.$store.commit('setDialog', value)
+				}
+			},
 		},
 		data()
 		{
@@ -55,6 +68,10 @@
 		},
 		methods:
 		{
+			open()
+			{
+				this.getDialog = true;
+			},
 			dialEdit(value)
 			{
 				this.val = value
@@ -81,7 +98,14 @@
 		},
 		watch:
 		{
-
+			val:
+			{
+				handler()
+				{
+					//this.getDialog = this.val;
+				},
+				deep: true
+			}
 		}
 	}
 </script>

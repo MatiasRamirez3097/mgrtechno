@@ -17,10 +17,6 @@ class ProveedoresController extends Controller
     public function Index(){
     	return view('proveedores.proveedores');
     }
-    public function NuevoProveedorView()
-    {
-        return view('proveedores.proveedores_nuevo');
-    }
     public function EliminarProveedor(Request $request)
     {
         //return $request['id'];
@@ -60,7 +56,7 @@ class ProveedoresController extends Controller
             }
             $query = Proveedores::create([
                 'nombre' => $request->nombre,
-                'tel' => null
+                'tel' => $request->tel? $request->tel : null
             ]);
             return 'work';
         }

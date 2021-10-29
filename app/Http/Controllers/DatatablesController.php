@@ -21,8 +21,7 @@ class DatatablesController extends Controller
 	public function GetProveedores(Request $request)
 	{
 		$parameters = $request->all();
-		$retornar = Proveedores::select(['proveedores.id', 'proveedores.nombre', 'proveedores.tel'])
-						->where('estado','=', true);
+		$retornar = Proveedores::select(['proveedores.id', 'proveedores.nombre', 'proveedores.tel']);
 		if($parameters['search'] != null)
 		{
 			$filtro = $parameters['search'];
@@ -209,9 +208,36 @@ class DatatablesController extends Controller
 	public function getCompras(Request $request)
 	{
 		$parameters = $request->all();
-		$retornar = Compras::select('compras.id','factura','users.name AS usuario','estado','total','fecha')
+		$retornar = Compras::select('compras.id','factura','users.name AS usuario','estado','total','fecha', 'proveedores.nombre AS proveedor')
 							->leftjoin('proveedores','proveedores.id','=','compras.proveedor_id')
 							->leftjoin('users','users.id','=','compras.user_id');
+		if($parameters['search'] != null)
+		{
+			$filtro = $parameters['search'];
+			$retornar = $retornar->where(function ($retornar) use ($filtro) {
+				$retornar->orWhere('factura','ilike',"%$filtro%");
+				$retornar->orWhere('users.name','ilike',"%$filtro%");
+				$retornar->orWhere('estado','ilike',"%$filtro%");
+				$retornar->orWhere('proveedores.nombre','ilike',"%$filtro%");
+			
+				if(is_numeric($filtro))
+				{
+					$retornar->orWhere('total','ilike',"%$filtro%");
+				}
+			});
+		}
+		if(sizeof($parameters['sortDesc'])> 0 && sizeof($parameters['sortBy'])> 0)
+		{
+			if($parameters['sortDesc'][0] == true)
+			{
+				$retornar->orderBy($parameters['sortBy'][0], 'desc');
+			}
+			else
+			{
+				$retornar->orderBy($parameters['sortBy'][0], 'asc');
+			}
+			
+		}
 		return Response::json($retornar->paginate($parameters['itemsPerPage']));		
 	}
 

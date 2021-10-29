@@ -2,7 +2,8 @@
 	<v-dialog persistent v-model="state" max-width="600px">
 		<!--<newItemForm v-if="getAction == 'nuevo'"></newItemForm>
 		<editItemForm v-else-if="getAction == 'editar'"></editItemForm>-->
-              <newItemForm></newItemForm>		
+              <!--<newItemForm></newItemForm>-->
+			  <ventasNew></ventasNew>	
                       
                       <!--<v-combobox
                         v-else-if="formTitle == 'Editar producto'"
@@ -97,13 +98,11 @@
   	</v-dialog>
 </template>
 <script>
-	import editItemForm from './forms/editItemForm'
-	import newItemForm from './forms/newItemForm'
+	import ventasNew from './forms/ventasNew'
 	export default{
 		components:
 		{
-			editItemForm,
-			newItemForm
+			ventasNew
 		},
 		computed:
 		{
