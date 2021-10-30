@@ -11,9 +11,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _forms_comprasNew__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../forms/comprasNew */ "./resources/js/forms/comprasNew.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -307,7 +307,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
+var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -317,11 +317,11 @@ var render = function () {
       attrs: { persistent: "", "max-width": "600px" },
       model: {
         value: _vm.dialog,
-        callback: function ($$v) {
+        callback: function($$v) {
           _vm.dialog = $$v
         },
-        expression: "dialog",
-      },
+        expression: "dialog"
+      }
     },
     [_c("comprasNew")],
     1
@@ -345,7 +345,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
+var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -355,18 +355,18 @@ var render = function () {
       ref: "form",
       model: {
         value: _vm.valid,
-        callback: function ($$v) {
+        callback: function($$v) {
           _vm.valid = $$v
         },
-        expression: "valid",
-      },
+        expression: "valid"
+      }
     },
     [
       _c(
         "v-card",
         [
           _c("v-card-title", [
-            _c("span", { staticClass: "headline" }, [_vm._v("Nueva compra")]),
+            _c("span", { staticClass: "headline" }, [_vm._v("Nueva compra")])
           ]),
           _vm._v(" "),
           _c(
@@ -388,16 +388,16 @@ var render = function () {
                             attrs: {
                               label: "Proveedor",
                               placeholder: "Escribir para buscar",
-                              url: "/ajax/proveedores",
+                              url: "/ajax/proveedores"
                             },
                             model: {
                               value: _vm.item.proveedor,
-                              callback: function ($$v) {
+                              callback: function($$v) {
                                 _vm.$set(_vm.item, "proveedor", $$v)
                               },
-                              expression: "item.proveedor",
-                            },
-                          }),
+                              expression: "item.proveedor"
+                            }
+                          })
                         ],
                         1
                       ),
@@ -409,17 +409,17 @@ var render = function () {
                           _c("datepicker", [
                             _vm._v(
                               '\n                                label="Fecha" \n                                v-model="item.fecha" \n\t\t\t\t\t\t\t'
-                            ),
-                          ]),
+                            )
+                          ])
                         ],
                         1
-                      ),
+                      )
                     ],
                     1
-                  ),
+                  )
                 ],
                 1
-              ),
+              )
             ],
             1
           ),
@@ -433,7 +433,7 @@ var render = function () {
                 "v-btn",
                 {
                   attrs: { color: "blue darken-1", text: "" },
-                  on: { click: _vm.close },
+                  on: { click: _vm.close }
                 },
                 [_vm._v("Cancel")]
               ),
@@ -442,16 +442,16 @@ var render = function () {
                 "v-btn",
                 {
                   attrs: { disabled: !_vm.valid, color: "success", text: "" },
-                  on: { click: _vm.save },
+                  on: { click: _vm.save }
                 },
                 [_vm._v("Save")]
-              ),
+              )
             ],
             1
-          ),
+          )
         ],
         1
-      ),
+      )
     ],
     1
   )
@@ -474,7 +474,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
+var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -485,20 +485,20 @@ var render = function () {
         attrs: {
           title: "Compras",
           headers: _vm.headers,
-          url: "/datatables/getcompras",
+          url: "/datatables/getcompras"
         },
-        on: { edit: _vm.dialEdit, new: _vm.open },
+        on: { edit: _vm.dialEdit, new: _vm.open }
       }),
       _vm._v(" "),
       _c("comprasDialog", {
         ref: "dialog",
         attrs: { state: _vm.val },
         on: {
-          "update:state": function ($event) {
+          "update:state": function($event) {
             _vm.val = $event
-          },
-        },
-      }),
+          }
+        }
+      })
     ],
     1
   )

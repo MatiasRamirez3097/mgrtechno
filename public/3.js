@@ -23,8 +23,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -34,11 +32,23 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       headers: [{
-        text: 'Name',
-        value: 'name'
+        text: "Tipo",
+        value: "tipo"
       }, {
-        text: 'Surname',
-        value: 'surname'
+        text: "Marca",
+        value: "marca"
+      }, {
+        text: "Modelo",
+        value: "modelo"
+      }, {
+        text: "EAN",
+        value: "ean"
+      }, {
+        text: "EAN",
+        value: "upc"
+      }, {
+        text: "Cantidad",
+        value: "cantidad"
       }],
       loading: false,
       search: "",
@@ -60,7 +70,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
+var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -69,14 +79,18 @@ var render = function () {
     [
       _c("v-card-title"),
       _vm._v(" "),
-      _c("datatable", {
-        attrs: {
-          loading: _vm.loading,
-          headers: _vm.headers,
-          items: _vm.items,
-          classProp: "elevation-1",
+      _c(
+        "datatable",
+        {
+          attrs: {
+            title: "Compras",
+            headers: _vm.headers,
+            url: "/datatables/getproductos"
+          },
+          on: { edit: _vm.dialEdit, new: _vm.open }
         },
-      }),
+        [_vm._v("\n        >\n        ")]
+      )
     ],
     1
   )
